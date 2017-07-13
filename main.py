@@ -90,5 +90,6 @@ def process_messages(sender,text,service):
         
         
 if __name__ == '__main__':
-    context = ('/etc/ssl/localcerts/mycert.pem', '/etc/ssl/localcerts/mykey.key')
-    app.run(host='127.0.0.1',port=8000,debug=False,ssl_context=context)
+    #context = ('/etc/ssl/localcerts/mycert.pem', '/etc/ssl/localcerts/mykey.key')
+    #app.run(host='127.0.0.1',port=8000,debug=False,ssl_context=context)
+    app.run()
