@@ -6,7 +6,6 @@ import json
 import base64
 import requests
 import string
-import reload
 
 reload(sys)
 sys.setdefaultencoding('utf8')
