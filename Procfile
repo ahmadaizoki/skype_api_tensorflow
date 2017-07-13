@@ -1,1 +1,1 @@
-web:python skype_api_tensorflow/main.py runserver 0.0.0.0:8000
+web:python main.py runserver
