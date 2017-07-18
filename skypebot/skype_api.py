@@ -7,15 +7,14 @@ import sys
 import time
 from datetime import *
 from time import *
-import os
-import re
 import base64
 
+from imp import reload
 from sys import version_info
 import string
 
 reload(sys)
-sys.setdefaultencoding('utf8')
+#sys.setdefaultencoding('utf8')
 
 #text should be UTF-8 and has a 320 character limit
 
