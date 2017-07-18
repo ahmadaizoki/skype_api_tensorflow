@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import sys
-import os
 import re
 import json
 import base64
 import requests
 import string
+from imp import reload
 
-#reload(sys)
+reload(sys)
 sys.setdefaultencoding('utf8')
 
 import skypebot
