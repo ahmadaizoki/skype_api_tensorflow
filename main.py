@@ -7,7 +7,7 @@ import base64
 import requests
 import string
 
-reload(sys)
+#reload(sys)
 sys.setdefaultencoding('utf8')
 
 import skypebot
