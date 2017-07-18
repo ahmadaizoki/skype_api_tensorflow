@@ -27,10 +27,10 @@ def send_message(token,service,sender,text):
                     }
         r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
 
-        print r
+        print (r)
 
     except Exception as e:
-        print e
+        print (e)
         pass
 
 
@@ -93,9 +93,9 @@ def send_media(token,service,sender,type,url):
         }
 
         r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
-        print r
+        print (r)
     except Exception as e:
-        print e
+        print (e)
         pass
 
 
@@ -112,10 +112,10 @@ def send_card(token,service,sender,type,card_attachment,summary,text):
         }
 
         r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
-        print payload
-        print r
+        print (payload)
+        print (r)
     except Exception as e:
-        print e
+        print (e)
         pass
 
 #typing action not yet supported
