@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import sys
-import re
 import json
 import base64
 import requests
@@ -8,7 +7,7 @@ import string
 from imp import reload
 
 reload(sys)
-sys.setdefaultencoding('utf8')
+#sys.setdefaultencoding('utf8')
 
 import skypebot
 
