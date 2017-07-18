@@ -82,4 +82,3 @@ websocket-client==0.40.0
 Werkzeug==0.12.2
 wrapt==1.8.0
 xlrd==0.9.4
-xlwt==0.7.5
