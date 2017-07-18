@@ -17,8 +17,8 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-client_id = 'e564d086-ee27-4a52-85f7-763848469813'  #client id you got from bot framework
-client_secret = 'aoaD7OckOhEoOzNtRdiY7H2' #client secret you got from... you know from where
+client_id = 'f6a6d0ee-1856-4c36-a545-a427aef5a001'  #client id you got from bot framework
+client_secret = 'MS3JDeGrSLmeHaHpqTtgvsS' #client secret you got from... you know from where
 
 bot = skypebot.SkypeBot(client_id,client_secret)
 
