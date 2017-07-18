@@ -126,10 +126,10 @@ def send_action(token,service,sender):
             "type":"typing"
         }
         r = requests.post(service+'/v3/conversations/'+sender+'/activities/',headers={"Authorization": "Bearer "+token,"Content-Type":"application/json"},json=payload)
-        print payload
-        print r
+        print (payload)
+        print (r)
     except Exception as e:
-        print e
+        print (e)
         pass
 
 
