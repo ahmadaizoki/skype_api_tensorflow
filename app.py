@@ -82,7 +82,7 @@ def webhook():
 
 
 def process_messages(sender,text,service):
-  bot.send_message(service,sender,"Hello World")
+  bot.send_message(service,sender,text)
 
 
 
