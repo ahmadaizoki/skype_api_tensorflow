@@ -62,6 +62,10 @@ def bow(sentence, words, show_details=False):
 
 ############################################################
 
+p = bow("is your shop open today?", words)
+print (p)
+print (classes)
+
 #################################################################
 
 # load our saved model
