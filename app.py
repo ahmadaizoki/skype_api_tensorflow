@@ -48,12 +48,12 @@ def webhook():
                 sender = data['conversation']['id']
                 text = data['text']
                 print (text)
-                text1=[bt.response(text)]
+                text1=bt.response(text)
                 print (text1)
 
                 #do what ever you want to do here for GROUPS
 
-                process_messages(sender,text1,service)
+                process_messages(sender,text,service)
 
             else:
                 #private chat
