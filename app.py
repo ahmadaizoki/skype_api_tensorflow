@@ -58,7 +58,7 @@ def webhook():
                 print (sender)
                 text = data['text']
                 print (text)
-                print bt.response('c est quoi les horaires du petit-dej')
+                print (bt.response('c est quoi les horaires du petit-dej'))
                 process_messages(sender,text,service)
 
         elif data['type'] == 'contactRelationUpdate':
