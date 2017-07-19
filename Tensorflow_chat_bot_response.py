@@ -88,7 +88,7 @@ def classify(sentence):
     for r in results:
         return_list.append((classes[r[0]], r[1]))
     # return tuple of intent and probability
-    print return_list
+    print (return_list)
     return return_list
 
 def response(sentence, userID='123', show_details=False):
