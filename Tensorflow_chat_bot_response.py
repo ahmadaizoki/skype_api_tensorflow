@@ -62,10 +62,6 @@ def bow(sentence, words, show_details=False):
 
 ############################################################
 
-p = bow("is your shop open today?", words)
-print (p)
-print (classes)
-
 #################################################################
 
 # load our saved model
@@ -115,22 +111,3 @@ def response(sentence, userID='123', show_details=False):
             results.pop(0)
 
   #########################################################
-
-#classify('saluttt')
-#response('saluttt')
-#response('comment tu vas ?')
-#response('je souhaite accueillir un nouveau consultant')
-#response('je souhaite accueillir consultant')
-#response('what kind of mopeds do you rent?')
-#response('we want to rent a moped')
-#context
-#response('we want to rent a moped')
-# show context
-#context
-#response('today')
-#classify('today')
-# clear context
-#response("Hi there!", show_details=True)
-#response('today')
-#classify('today')
-#response("thanks, your great")
