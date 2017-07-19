@@ -47,7 +47,9 @@ def webhook():
             if 'isGroup' in data['conversation'].keys():
                 sender = data['conversation']['id']
                 text = data['text']
-                text1=bt.response(text)
+                print (text)
+                text1=[bt.response(text)]
+                print (text1)
 
                 #do what ever you want to do here for GROUPS
 
