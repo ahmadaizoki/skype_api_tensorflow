@@ -16,8 +16,8 @@ import Tensorflow_chat_bot_response as bt
 
 app = Flask(__name__)
 
-client_id = 'f6a6d0ee-1856-4c36-a545-a427aef5a001'  #client id you got from bot framework
-client_secret = 'MS3JDeGrSLmeHaHpqTtgvsS' #client secret you got from... you know from where
+client_id = 'f6a6d0ee-1856-4c36-a545-a427aef5a001'  #Microsoft ID
+client_secret = 'MS3JDeGrSLmeHaHpqTtgvsS' #Microsoft mot de passe
 
 bot = skypebot.SkypeBot(client_id,client_secret)
 
@@ -29,60 +29,23 @@ def webhook():
     try:
         data = json.loads(request.data)
         service = data['serviceUrl']
-        if data['type'] =='conversationUpdate':
+        if data['type'] =='message':
+
             sender = data['conversation']['id']
-            if 'membersRemoved' in data.keys():
-                left_member = data['recipient']['name']
-
-                print ("I got removed from a group")
-
-            elif 'membersAdded' in data.keys():
-                new_member = data['recipient']['name']
-
-                bot.send_message(service,sender,"Hi, I am emoji bot. I can transform your text in messages to emojies. I also have an emoji game to play simply send @emojirobor #emojigame")
-            else:
-                pass
-        elif data['type'] =='message':
-
-            if 'isGroup' in data['conversation'].keys():
-                sender = data['conversation']['id']
-                text = data['text']
-
-                #do what ever you want to do here for GROUPS
-
-                process_messages(sender,text,service)
-
-            else:
-                #private chat
-                sender = data['conversation']['id']
-                print (sender)
-                text = data['text']
-                print (text)
-                res=bt.response(text)
-                process_messages(sender,res,service)
-
-        elif data['type'] == 'contactRelationUpdate':
-        #bot added for private chat
-
-            if data['action']=='add':
-
-                sender = data['conversation']['id']
-                bot.send_message(service,sender,"Hi, I am a bot.")
-                pass
-            elif data['action']=='remove':
-                pass
-            else:
-                pass
+            print (sender)
+            text = data['text']
+            res=bt.response(text)
+            process_messages(sender,res,service)
 
         else:
             pass
     except Exception as e:
-      print (traceback.format_exc()) # something went wrong
+      print (traceback.format_exc()) # si il y a un erreur
 
   return 'Ok'
 
 
-
+#envoyer le message vers Skype
 def process_messages(sender,text,service):
   bot.send_message(service,sender,text)
 
