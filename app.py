@@ -7,11 +7,11 @@ import string
 from imp import reload
 
 reload(sys)
-#sys.setdefaultencoding('utf8')
 
 import skypebot
 
 from flask import Flask, request
+import Tensorflow_chat_bot_response as bt
 
 
 app = Flask(__name__)
@@ -47,10 +47,11 @@ def webhook():
             if 'isGroup' in data['conversation'].keys():
                 sender = data['conversation']['id']
                 text = data['text']
+                text1=bt.response(text)
 
                 #do what ever you want to do here for GROUPS
 
-                process_messages(sender,text,service)
+                process_messages(sender,text1,service)
 
             else:
                 #private chat
