@@ -58,8 +58,8 @@ def webhook():
                 print (sender)
                 text = data['text']
                 print (text)
-                print (bt.response('c est quoi les horaires du petit-dej'))
-                process_messages(sender,text,service)
+                res=bt.response(text)
+                process_messages(sender,res,service)
 
         elif data['type'] == 'contactRelationUpdate':
         #bot added for private chat
