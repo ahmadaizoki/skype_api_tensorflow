@@ -47,9 +47,6 @@ def webhook():
             if 'isGroup' in data['conversation'].keys():
                 sender = data['conversation']['id']
                 text = data['text']
-                print (text)
-                text1=bt.response(text)
-                print (text1)
 
                 #do what ever you want to do here for GROUPS
 
@@ -60,6 +57,7 @@ def webhook():
                 sender = data['conversation']['id']
                 print (sender)
                 text = data['text']
+                print (text)
                 process_messages(sender,text,service)
 
         elif data['type'] == 'contactRelationUpdate':
