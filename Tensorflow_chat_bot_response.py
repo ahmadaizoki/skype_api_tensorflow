@@ -14,7 +14,6 @@ import random
 #connexion a la base
 import os
 import psycopg2
-import urlparse
 
 #essayer de cinnecter
 try:
@@ -148,7 +147,6 @@ def selectRestaurant():
 
 def inPool(sentence):
     sent=nltk.word_tokenize(sentence)
-    print (nltk.word_tokenize(sentence))
     res=selectPool()
     for i in sent:
         if i in res:
@@ -160,7 +158,6 @@ def inPool(sentence):
 
 def inBreakfast(sentence):
     sent=nltk.word_tokenize(sentence)
-    print (nltk.word_tokenize(sentence))
     res=selectBreakfast()
     for i in sent:
         if i in res:
@@ -172,7 +169,6 @@ def inBreakfast(sentence):
 
 def inRestaurant(sentence):
     sent=nltk.word_tokenize(sentence)
-    print (nltk.word_tokenize(sentence))
     res=selectRestaurant()
     for i in sent:
         if i in res:
@@ -184,7 +180,6 @@ def inRestaurant(sentence):
 
 def inFitness(sentence):
     sent=nltk.word_tokenize(sentence)
-    print (nltk.word_tokenize(sentence))
     res=selectFitness()
     for i in sent:
         if i in res:
@@ -231,7 +226,21 @@ def response(sentence, userID='123', show_details=False):
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                         if show_details: print ('tag:', i['tag'])
                         # choisit une reponse de l'intention
-                        return random.choice(i['responses'])
+                        if i['tag']=='horaires':
+                            if inPool(sentence):
+                                return ('les horaire de pool')
+                                break
+                            elif inBreakfast(sentence):
+                                return ('les horaire de breakfast')
+                                break
+                            elif inRestaurant(sentence):
+                                return ('les horaires de restaurant')
+                                break
+                            elif inFitness(sentence):
+                                return ('les horaires de fitness')
+                                break
+                            else:
+                                return random.choice(i['responses'])
 
             results.pop(0)
 

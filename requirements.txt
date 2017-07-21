@@ -11,6 +11,7 @@ Markdown==2.6.8
 matplotlib==1.5.1
 nltk==3.2.4
 numpy==1.13.0
+psycopg2==2.7.1
 py==1.4.31
 pyflakes==1.1.0
 pylint==1.5.2
