@@ -226,6 +226,7 @@ def response(sentence, userID='123', show_details=False):
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                         if show_details: print ('tag:', i['tag'])
                         # choisit une reponse de l'intention
+                        sentence=sentence.lower()
                         if i['tag']=='horaires':
                             if inPool(sentence):
                                 return ('les horaire de pool')
