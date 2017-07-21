@@ -241,6 +241,8 @@ def response(sentence, userID='123', show_details=False):
                                 break
                             else:
                                 return random.choice(i['responses'])
+                        else:
+                            return random.choice(i['responses'])
 
             results.pop(0)
 
