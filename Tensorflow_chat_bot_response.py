@@ -87,109 +87,31 @@ model.load('./model.tflearn')
 
 ############################################################
 
-def selectPool():
+def selectHoraire(mots):
     res=[]
+    rows=[]
     cur=conn.cursor()
     try:
-        cur.execute("SELECT * FROM pool")
+        cur.execute("""SELECT parametre FROM horaire WHERE mot=%(mots)s""",{"mots":mots})
         rows=cur.fetchall()
-        lenrow=len(rows)
     except:
         print ("erreur connexion")
-    for i in range (lenrow):
-        res=res+[rows[i][1]]
-    return res
+    if rows!=[]:
+        return rows[0][0]
+    else:
+        return
 
-#############################################################
+################################################################
 
-def selectBreakfast():
-    res=[]
-    cur=conn.cursor()
-    try:
-        cur.execute("SELECT * FROM breakfast")
-        rows=cur.fetchall()
-        lenrow=len(rows)
-    except:
-        print ("erreur connexion")
-    for i in range (lenrow):
-        res=res+[rows[i][1]]
-    return res
-
-##############################################################
-
-def selectFitness():
-    res=[]
-    cur=conn.cursor()
-    try:
-        cur.execute("SELECT * FROM fitness")
-        rows=cur.fetchall()
-        lenrow=len(rows)
-    except:
-        print ("erreur connexion")
-    for i in range (lenrow):
-        res=res+[rows[i][1]]
-    return res
+def inHoraire(sentence):
+    sent=nltk.word_tokenize(sentence)
+    for i in sent:
+        res=selectHoraire(i)
+        if res:
+            return res
+            break
 
 #################################################################
-
-def selectRestaurant():
-    res=[]
-    cur=conn.cursor()
-    try:
-        cur.execute("SELECT * FROM restaurant")
-        rows=cur.fetchall()
-        lenrow=len(rows)
-    except:
-        print ("erreur connexion")
-    for i in range (lenrow):
-        res=res+[rows[i][1]]
-    return res
-
-##################################################################
-
-def inPool(sentence):
-    sent=nltk.word_tokenize(sentence)
-    res=selectPool()
-    for i in sent:
-        if i in res:
-            return True
-            break
-    return False
-
-###################################################################
-
-def inBreakfast(sentence):
-    sent=nltk.word_tokenize(sentence)
-    res=selectBreakfast()
-    for i in sent:
-        if i in res:
-            return True
-            break
-    return False
-
-####################################################################
-
-def inRestaurant(sentence):
-    sent=nltk.word_tokenize(sentence)
-    res=selectRestaurant()
-    for i in sent:
-        if i in res:
-            return True
-            break
-    return False
-
-#####################################################################
-
-def inFitness(sentence):
-    sent=nltk.word_tokenize(sentence)
-    res=selectFitness()
-    for i in sent:
-        if i in res:
-            return True
-            break
-    return False
-
-######################################################################
 
 # la data structure pour la contexte d'utilisateur
 context = {}
@@ -230,16 +152,17 @@ def response(sentence, userID='123', show_details=False):
                         # choisit une reponse de l'intention
                         sentence=sentence.lower()
                         if i['tag']=='horaires':
-                            if inPool(sentence):
+                            hor=inHoraire(sentence)
+                            if hor=='pool':
                                 return (horaires["horaires"][0]["pool"])
                                 break
-                            elif inBreakfast(sentence):
+                            elif hor=='breakfast':
                                 return (horaires["horaires"][0]["breakfast"])
                                 break
-                            elif inRestaurant(sentence):
+                            elif hor=='restaurant':
                                 return (horaires["horaires"][0]["restaurant"])
                                 break
-                            elif inFitness(sentence):
+                            elif hor=='fitness':
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
@@ -250,5 +173,3 @@ def response(sentence, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
-
-print (response('quel heure piscine'))
