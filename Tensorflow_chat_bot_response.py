@@ -133,6 +133,7 @@ def classify(sentence):
 
 def response(sentence, userID='123', show_details=False):
     results = classify(sentence)
+    sentence=sentence.lower()
     # si on a classifie ,trouve moi l'intention
     if results:
         # loop as long as there are matches to process
@@ -150,7 +151,6 @@ def response(sentence, userID='123', show_details=False):
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                         if show_details: print ('tag:', i['tag'])
                         # choisit une reponse de l'intention
-                        sentence=sentence.lower()
                         if i['tag']=='horaires':
                             hor=inHoraire(sentence)
                             if hor=='pool':
@@ -167,8 +167,21 @@ def response(sentence, userID='123', show_details=False):
                                 break
                             else:
                                 return random.choice(i['responses'])
+                        elif i['tag']=='q_horaires':
+                            if sentence=='pool':
+                                return (horaires["horaires"][0]["pool"])
+                            elif sentence=='breakfast':
+                                return (horaires["horaires"][0]["breakfast"])
+                            elif sentence=='restaurant':
+                                return (horaires["horaires"][0]["restaurant"])
+                            elif sentence=='fitness':
+                                return (horaires["horaires"][0]["fitness"])
+                            else:
+                                return random.choice(i['responses'])
                         else:
                             return random.choice(i['responses'])
+                    else:
+                        return 'je comprends pas ce que vous voulez me dire'
 
             results.pop(0)
 
