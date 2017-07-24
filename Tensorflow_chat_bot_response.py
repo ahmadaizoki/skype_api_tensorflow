@@ -37,6 +37,8 @@ import json
 with open('intents.json') as json_data:
     intents = json.load(json_data)
 
+with open('horaires.json') as horaires_data:
+    horaires=json.load(horaires_data)
 ############################################
 
 # construire le reseau de neuron
@@ -229,16 +231,16 @@ def response(sentence, userID='123', show_details=False):
                         sentence=sentence.lower()
                         if i['tag']=='horaires':
                             if inPool(sentence):
-                                return ('les horaire de pool')
+                                return (horaires["horaires"][0]["pool"])
                                 break
                             elif inBreakfast(sentence):
-                                return ('les horaire de breakfast')
+                                return (horaires["horaires"][0]["breakfast"])
                                 break
                             elif inRestaurant(sentence):
-                                return ('les horaires de restaurant')
+                                return (horaires["horaires"][0]["restaurant"])
                                 break
                             elif inFitness(sentence):
-                                return ('les horaires de fitness')
+                                return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
                                 return random.choice(i['responses'])
@@ -248,3 +250,5 @@ def response(sentence, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
+
+print (response('quel heure piscine'))
