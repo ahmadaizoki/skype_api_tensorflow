@@ -34,7 +34,7 @@ def webhook():
             sender = data['conversation']['id']
             print (sender)
             text = data['text']
-            res=bt.response(text)
+            res=bt.response(text,123)
             process_messages(sender,res,service)
 
         else:
