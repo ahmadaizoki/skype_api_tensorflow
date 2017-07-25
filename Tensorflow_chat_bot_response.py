@@ -182,7 +182,7 @@ def response(sentence, userID='123', show_details=False):
                             else:
                                 return random.choice(i['responses'])
                     else:
-                        return 'je comprends pas ce que vous voulez me dire'
+                        return 'je comprends pas ce que vous voulez me dire!'
 
             results.pop(0)
 
