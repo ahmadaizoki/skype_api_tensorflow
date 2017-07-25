@@ -134,24 +134,55 @@ def classify(sentence):
 
 def response(sentence, userID='123', show_details=False):
     results = classify(sentence)
-    # if we have a classification then find the matching intent tag
+    sentence=sentence.lower()
+    # si on a classifie ,trouve moi l'intention
     if results:
         # loop as long as there are matches to process
         while results:
             for i in intents['intents']:
-                # find a tag matching the first result
+                # trouver l'intention
                 if i['tag'] == results[0][0]:
-                    # set context for this intent if necessary
+                    # si il y a une contexte
                     if 'context_set' in i:
                         if show_details: print ('context:', i['context_set'])
                         context[userID] = i['context_set']
 
-                    # check if this intent is contextual and applies to this user's conversation
+                    # si il y a pas de contexte
                     if not 'context_filter' in i or \
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                             if show_details: print ('tag:', i['tag'])
-                            # a random response from the intent
-                            return (random.choice(i['responses']))
+                            # choisit une reponse de l'intention
+                            if i['tag']=='horaires':
+                                hor=inHoraire(sentence)
+                                if hor=='pool':
+                                    return (horaires["horaires"][0]["pool"])
+                                    break
+                                elif hor=='breakfast':
+                                    return (horaires["horaires"][0]["breakfast"])
+                                    break
+                                elif hor=='restaurant':
+                                    return (horaires["horaires"][0]["restaurant"])
+                                    break
+                                elif hor=='fitness':
+                                    return (horaires["horaires"][0]["fitness"])
+                                    break
+                                else:
+                                    return random.choice(i['responses'])
+                            elif i['tag']=='q_horaires':
+                                if sentence=='pool':
+                                    return (horaires["horaires"][0]["pool"])
+                                elif sentence=='breakfast':
+                                    return (horaires["horaires"][0]["breakfast"])
+                                elif sentence=='restaurant':
+                                    return (horaires["horaires"][0]["restaurant"])
+                                elif sentence=='fitness':
+                                    return (horaires["horaires"][0]["fitness"])
+                                else:
+                                    return random.choice(i['responses'])
+                            else:
+                                return random.choice(i['responses'])
+                    else:
+                        return 'je comprends pas ce que vous voulez me dire'
 
             results.pop(0)
 
