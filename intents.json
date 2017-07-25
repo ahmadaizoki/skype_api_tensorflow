@@ -1,8 +1,7 @@
 {"intents": [
         {"tag": "salutation",
          "patterns": ["salut!", "coucou", "heyy", "bonjour!"],
-         "responses": ["salut,ca va?", "coucou", "salut","bonjour"],
-         "context_set": ""
+         "responses": ["salut,ca va?", "coucou", "salut","bonjour"]
         },
         {"tag": "ca_va",
          "patterns": ["ca va ?", "comment vas tu?", "tu vas bien?"],
@@ -26,7 +25,7 @@
        {
          "tag":"end",
          "patterns":"merci",
-         "responses":"De rien",
+         "responses":["De rien"],
          "context_set":"end"
        }
    ]
