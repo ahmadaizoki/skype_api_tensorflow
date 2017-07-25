@@ -22,6 +22,12 @@
          "patterns":["pool","restaurant","breakfast","fitness"],
          "responses":["J'ai mal a comprendre ce que vous voulez me dire, pouvez-vous choisir un choix: pool , breakfast , restaurant , fitness"],
          "context_filter":"horaire"
+       },
+       {
+         "tag":"end",
+         "patterns":"merci",
+         "responses":"De rien",
+         "context_set":"end"
        }
    ]
 }
