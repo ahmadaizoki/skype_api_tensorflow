@@ -24,7 +24,7 @@
        },
        {
          "tag":"end",
-         "patterns":"merci",
+         "patterns":["merci"],
          "responses":["De rien"],
          "context_set":"end"
        }
