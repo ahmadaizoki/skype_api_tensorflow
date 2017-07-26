@@ -113,6 +113,25 @@ def inHoraire(sentence):
 
 #################################################################
 
+#Ajouter dans la base
+def addToHoraire(sentence,parametre):
+    sent=nltk.word_tokenize(sentence)
+    cur=conn.cursor()
+    j=0
+    for i in sent:
+        j+=1
+        if (i=='le'or i=='la' or i=='les'):
+            try:
+                cur.execute("""INSERT INTO horaire (mot,parametre,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":parametre})
+                conn.commit()
+                print ("Done!")
+            except:
+                print ("erreur connexion")
+            print (sent[j])
+            break
+
+#################################################################
+
 # la data structure pour la contexte d'utilisateur
 context = {}
 
