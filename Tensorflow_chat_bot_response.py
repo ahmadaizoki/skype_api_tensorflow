@@ -130,6 +130,14 @@ def addToHoraire(sentence,parametre):
             print (sent[j])
             break
 
+def addToQuestion(sentence):
+    cur=conn.cursor()
+    try:
+        cur.execute("""INSERT INTO question (question,traiter) VALUES (%(sentence)s,0)""",{"sentence":sentence})
+        conn.commit()
+    except:
+        print ("erreur connexion")
+
 #################################################################
 
 # la data structure pour la contexte d'utilisateur
