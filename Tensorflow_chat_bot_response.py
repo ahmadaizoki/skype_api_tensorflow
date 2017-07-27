@@ -173,29 +173,29 @@ def response(sentence, userID='123', show_details=False):
                     if 'context_set' in i:
                         if show_details: print ('context:', i['context_set'])
                         context[userID] = i['context_set']
+                        if i['tag']=='horaires':
+                            hor=inHoraire(sentence)
+                            if hor=='pool':
+                                return (horaires["horaires"][0]["pool"])
+                                break
+                            elif hor=='breakfast':
+                                return (horaires["horaires"][0]["breakfast"])
+                                break
+                            elif hor=='restaurant':
+                                return (horaires["horaires"][0]["restaurant"])
+                                break
+                            elif hor=='fitness':
+                                return (horaires["horaires"][0]["fitness"])
+                                break
+                            else:
+                                return random.choice(i['responses'])
 
                     # si il y a pas de contexte
                     if not 'context_filter' in i or \
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                             if show_details: print ('tag:', i['tag'])
                             # choisit une reponse de l'intention
-                            if i['tag']=='horaires':
-                                hor=inHoraire(sentence)
-                                if hor=='pool':
-                                    return (horaires["horaires"][0]["pool"])
-                                    break
-                                elif hor=='breakfast':
-                                    return (horaires["horaires"][0]["breakfast"])
-                                    break
-                                elif hor=='restaurant':
-                                    return (horaires["horaires"][0]["restaurant"])
-                                    break
-                                elif hor=='fitness':
-                                    return (horaires["horaires"][0]["fitness"])
-                                    break
-                                else:
-                                    return random.choice(i['responses'])
-                            elif i['tag']=='q_horaires':
+                            if i['tag']=='q_horaires':
                                 if sentence=='pool':
                                     return (horaires["horaires"][0]["pool"])
                                 elif sentence=='breakfast':
