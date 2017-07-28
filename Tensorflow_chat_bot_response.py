@@ -191,7 +191,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 break
                             else:
                                 if (addToHoraire(sentence,user_id)):
-                                    print ("add to horaire")
+                                    print ("add to horaires")
                                 else:
                                     addToQuestion(sentence,user_id)
                                     print ("add to question")
