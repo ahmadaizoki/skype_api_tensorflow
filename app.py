@@ -33,6 +33,7 @@ def webhook():
 
             sender = data['conversation']['id']
             print (sender)
+            print (data)
             text = data['text']
             res=bt.response(text)
             process_messages(sender,res,service)
