@@ -122,7 +122,7 @@ def addToHoraire(sentence,user_id):
         j+=1
         if (i=='le'or i=='la' or i=='les'):
             try:
-                cur.execute("""INSERT INTO horaires (mot,id_user,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":user_id})
+                cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
                 conn.commit()
                 print ("Done!")
             except:
@@ -190,10 +190,10 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
-                                if (addToHoraire(sentence,userID)):
+                                if (addToHoraire(sentence,user_id)):
                                     print ("add to horaire")
                                 else:
-                                    addToQuestion(sentence,userID)
+                                    addToQuestion(sentence,user_id)
                                     print ("add to question")
                                 return random.choice(i['responses'])
 
