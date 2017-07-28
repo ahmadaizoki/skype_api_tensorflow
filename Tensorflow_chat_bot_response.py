@@ -190,7 +190,7 @@ def response(sentence, userID='123', show_details=False):
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
-                                if (addToHoraire(sentence,"pool")):
+                                if (addToHoraire(sentence)):
                                     print ("add to horaire")
                                 else:
                                     addToQuestion(sentence)
