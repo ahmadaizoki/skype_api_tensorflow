@@ -114,13 +114,13 @@ def inHoraire(sentence):
 #################################################################
 
 #Ajouter dans la base
-def addToHoraire(sentence,user_id):
+def addMotToHoraire(sentence,user_id):
     sent=nltk.word_tokenize(sentence)
     cur=conn.cursor()
     j=0
     for i in sent:
         j+=1
-        if (i=='le'or i=='la' or i=='les'):
+        if (i=='le'or i=='la' or i=='les' or i=='au' or i=='l'):
             try:
                 cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
                 conn.commit()
@@ -135,7 +135,27 @@ def addToHoraire(sentence,user_id):
 def addToQuestion(sentence,user_id):
     cur=conn.cursor()
     try:
-        cur.execute("""INSERT INTO question (question,traiter,user_id) VALUES (%(sentence)s,0,%(user_id)s)""",{"sentence":sentence,"user_id":user_id})
+        cur.execute("""INSERT INTO question (question,traiter,id_user) VALUES (%(sentence)s,0,%(user_id)s)""",{"sentence":sentence,"user_id":user_id})
+        conn.commit()
+    except:
+        print ("erreur connexion")
+
+def lastHoraires(user_id):
+    cur=conn.cursor()
+    rows=[]
+    try:
+        cur.execute("""SELECT mot FROM horaires WHERE id_user=%(user_id)s""",{"user_id":user_id})
+        rows=cur.fetchall()
+    except:
+        print ("erreur connexion")
+    j=len(rows)
+    return rows[j-1][0]
+
+def updateHoraires(parametre,user_id):
+    mot=lastHoraires(user_id)
+    cur=conn.cursor()
+    try:
+        cur.execute("""UPDATE horaires SET parametre=%(parametre)s WHERE (mot=%(mot)s AND id_user=%(user_id)s)""",{"parametre":parametre,"mot":mot,"user_id":user_id})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -190,7 +210,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
-                                if (addToHoraire(sentence,user_id)):
+                                if (addMotToHoraire(sentence,user_id)):
                                     print ("add to horaires")
                                 else:
                                     addToQuestion(sentence,user_id)
@@ -204,12 +224,16 @@ def response(sentence,user_id, userID='123', show_details=False):
                             # choisit une reponse de l'intention
                             if i['tag']=='q_horaires':
                                 if sentence=='pool':
+                                    updateHoraires('pool',user_id)
                                     return (horaires["horaires"][0]["pool"])
                                 elif sentence=='breakfast':
+                                    updateHoraires('breakfast',user_id)
                                     return (horaires["horaires"][0]["breakfast"])
                                 elif sentence=='restaurant':
+                                    updateHoraires('restaurant',user_id)
                                     return (horaires["horaires"][0]["restaurant"])
                                 elif sentence=='fitness':
+                                    updateHoraires('fitness',user_id)
                                     return (horaires["horaires"][0]["fitness"])
                                 else:
                                     return random.choice(i['responses'])
