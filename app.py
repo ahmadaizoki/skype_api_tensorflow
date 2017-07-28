@@ -29,13 +29,14 @@ def webhook():
     try:
         data = json.loads(request.data)
         service = data['serviceUrl']
+        user_id=data['form']['name']
         if data['type'] =='message':
 
             sender = data['conversation']['id']
             print (sender)
-            print (data)
+            print (data['form']['name'])
             text = data['text']
-            res=bt.response(text)
+            res=bt.response(text,user_id)
             process_messages(sender,res,service)
 
         else:

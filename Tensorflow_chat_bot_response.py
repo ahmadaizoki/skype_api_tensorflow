@@ -114,7 +114,7 @@ def inHoraire(sentence):
 #################################################################
 
 #Ajouter dans la base
-def addToHoraire(sentence,parametre):
+def addToHoraire(sentence,user_id):
     sent=nltk.word_tokenize(sentence)
     cur=conn.cursor()
     j=0
@@ -122,7 +122,7 @@ def addToHoraire(sentence,parametre):
         j+=1
         if (i=='le'or i=='la' or i=='les'):
             try:
-                cur.execute("""INSERT INTO horaires (mot,parametre,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":parametre})
+                cur.execute("""INSERT INTO horaires (mot,id_user,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":user_id})
                 conn.commit()
                 print ("Done!")
             except:
@@ -132,10 +132,10 @@ def addToHoraire(sentence,parametre):
             break
     return False
 
-def addToQuestion(sentence):
+def addToQuestion(sentence,user_id):
     cur=conn.cursor()
     try:
-        cur.execute("""INSERT INTO question (question,traiter) VALUES (%(sentence)s,0)""",{"sentence":sentence})
+        cur.execute("""INSERT INTO question (question,traiter,user_id) VALUES (%(sentence)s,0,%(user_id)s)""",{"sentence":sentence,"user_id":user_id})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -161,7 +161,7 @@ def classify(sentence):
     return return_list
 
 
-def response(sentence, userID='123', show_details=False):
+def response(sentence,user_id, userID='123', show_details=False):
     results = classify(sentence)
     sentence=sentence.lower()
     # si on a classifie ,trouve moi l'intention
@@ -190,10 +190,10 @@ def response(sentence, userID='123', show_details=False):
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
-                                if (addToHoraire(sentence)):
+                                if (addToHoraire(sentence,userID)):
                                     print ("add to horaire")
                                 else:
-                                    addToQuestion(sentence)
+                                    addToQuestion(sentence,userID)
                                     print ("add to question")
                                 return random.choice(i['responses'])
 
