@@ -159,7 +159,7 @@ def updateHoraires(parametre,user_id):
         conn.commit()
     except:
         print ("erreur connexion")
-
+    return True
 #################################################################
 
 # la data structure pour la contexte d'utilisateur
@@ -224,17 +224,25 @@ def response(sentence,user_id, userID='123', show_details=False):
                             # choisit une reponse de l'intention
                             if i['tag']=='q_horaires':
                                 if sentence=='pool':
-                                    updateHoraires('pool',user_id)
-                                    return (horaires["horaires"][0]["pool"])
+                                    if (updateHoraires('pool',user_id)):
+                                        return (horaires["horaires"][0]["pool"])
+                                    else:
+                                        return (horaires["horaires"][0]["pool"])
                                 elif sentence=='breakfast':
-                                    updateHoraires('breakfast',user_id)
-                                    return (horaires["horaires"][0]["breakfast"])
+                                    if (updateHoraires('breakfast',user_id)):
+                                        return (horaires["horaires"][0]["breakfast"])
+                                    else:
+                                        return (horaires["horaires"][0]["breakfast"])
                                 elif sentence=='restaurant':
-                                    updateHoraires('restaurant',user_id)
-                                    return (horaires["horaires"][0]["restaurant"])
+                                    if (updateHoraires('restaurant',user_id)):
+                                        return (horaires["horaires"][0]["restaurant"])
+                                    else:
+                                        return (horaires["horaires"][0]["restaurant"])
                                 elif sentence=='fitness':
-                                    updateHoraires('fitness',user_id)
-                                    return (horaires["horaires"][0]["fitness"])
+                                    if (updateHoraires('fitness',user_id)):
+                                        return (horaires["horaires"][0]["fitness"])
+                                    else:
+                                        return (horaires["horaires"][0]["fitness"])
                                 else:
                                     return random.choice(i['responses'])
                             else:
