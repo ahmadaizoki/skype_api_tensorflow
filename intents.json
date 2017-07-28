@@ -23,6 +23,10 @@
          "patterns":["merci"],
          "responses":["De rien"],
          "context_set":"end"
+       },
+       {"tag": "payant",
+        "patterns":["wifi_bar payant","amenities payant","services payant","shuttle payant","facilities payant","piscine payant","fitness_center payant","fitness_products payant","tennis payant","golf","on_site_activity","spa_and_thalasso_product","tourism_service","parking payant","petit dejeuner payant","Est-ce que le brunch est payant?","Le brunch est-il inclus dans le prix?","Faut-il payer pour le brunch?","Doit-on payer pour le brunch?","Est-ce qu'il faut payer pour le brunch?","Combien coûte le brunch?","Le brunch est-il compris ?","Le brunch est-il payant?","Faut payer pour le brunch?","","Est-ce que c'est payant le brunch ?","Combien pour le brunch ?","Est-ce que le brunch est gratuit ?","Le brunch est-il gratuit ?","Est-ce que c'est gratuit le brunch ?","Payant le brunch ?","Gratuit le brunch ?","Le prix du brunch est-il a part ?","Le prix du brunch est a part ?","Le brunch est-il compris dans le forfait ?","Le brunch est compris dans le forfait ?","Est-ce qu'il faut payer pour le brunch ?","Quel est le prix du brunch ?","Brunch payant ?","Brunch gratuit ?","Quel est le tarif du brunch ?","Tarif du brunch ?","Prix du brunch ?","C'est combien le brunch ?","Le brunch il est gratuit ?","Il est gratuit le brunch ou pas ?","Faut payer le brunch en plus ?","C'est quoi le prix du brunch ?"],
+        "responses": ["Reponse service payant"]
        }
    ]
 }
