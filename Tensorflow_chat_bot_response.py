@@ -92,7 +92,7 @@ def selectHoraire(mots):
     rows=[]
     cur=conn.cursor()
     try:
-        cur.execute("""SELECT parametre FROM horaire WHERE mot=%(mots)s""",{"mots":mots})
+        cur.execute("""SELECT parametre FROM horaires WHERE mot=%(mots)s""",{"mots":mots})
         rows=cur.fetchall()
     except:
         print ("erreur connexion")
@@ -122,7 +122,7 @@ def addToHoraire(sentence,parametre):
         j+=1
         if (i=='le'or i=='la' or i=='les'):
             try:
-                cur.execute("""INSERT INTO horaire (mot,parametre,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":parametre})
+                cur.execute("""INSERT INTO horaires (mot,parametre,flag) VALUES (%(mot)s,%(parametre)s,1)""",{"mot":sent[j],"parametre":parametre})
                 conn.commit()
                 print ("Done!")
             except:
