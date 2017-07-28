@@ -128,7 +128,9 @@ def addToHoraire(sentence,parametre):
             except:
                 print ("erreur connexion")
             print (sent[j])
+            return True
             break
+    return False
 
 def addToQuestion(sentence):
     cur=conn.cursor()
@@ -188,6 +190,11 @@ def response(sentence, userID='123', show_details=False):
                                 return (horaires["horaires"][0]["fitness"])
                                 break
                             else:
+                                if (addToHoraire(sentence,"pool")):
+                                    print ("add to horaire")
+                                else:
+                                    addToQuestion(sentence)
+                                    print ("add to question")
                                 return random.choice(i['responses'])
 
                     # si il y a pas de contexte
