@@ -29,7 +29,7 @@ def webhook():
     try:
         data = json.loads(request.data)
         service = data['serviceUrl']
-        user_id=data['form']['name']
+        user_id=data['from']['name']
         if data['type'] =='message':
 
             sender = data['conversation']['id']
