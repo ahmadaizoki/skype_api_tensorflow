@@ -43,8 +43,8 @@ with open('horaires.json') as horaires_data:
 
 # construire le reseau de neuron
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, 12)
+net = tflearn.fully_connected(net, 12)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
@@ -132,10 +132,10 @@ def addMotToHoraire(sentence,user_id):
             break
     return False
 
-def addToQuestion(sentence,user_id):
+def addToQuestion(sentence,user_id,intent):
     cur=conn.cursor()
     try:
-        cur.execute("""INSERT INTO question (question,traiter,id_user) VALUES (%(sentence)s,0,%(user_id)s)""",{"sentence":sentence,"user_id":user_id})
+        cur.execute("""INSERT INTO question (question,traiter,id_user,intent) VALUES (%(sentence)s,0,%(user_id)s,%(intent)s)""",{"sentence":sentence,"user_id":user_id,"intent":intent})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -150,7 +150,7 @@ def lastHoraires(user_id):
         print ("erreur connexion")
     j=len(rows)
     return rows[j-1][0]
-
+    
 def updateHoraires(parametre,user_id):
     mot=lastHoraires(user_id)
     cur=conn.cursor()
@@ -213,7 +213,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 if (addMotToHoraire(sentence,user_id)):
                                     print ("add to horaires")
                                 else:
-                                    addToQuestion(sentence,user_id)
+                                    addToQuestion(sentence,user_id,i['tag'])
                                     print ("add to question")
                                 return random.choice(i['responses'])
 
@@ -246,6 +246,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 else:
                                     return random.choice(i['responses'])
                             else:
+                                addToQuestion(sentence,user_id,i['tag'])
                                 return random.choice(i['responses'])
                     else:
                         return 'je comprends pas ce que vous voulez me dire!'
@@ -253,3 +254,6 @@ def response(sentence,user_id, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
+
+print (response('il y a wifi_bar et c est gratuit ou payant ','Ahmad'))
+print (response('je peux venir avec un  handicape? ','Ahmad'))

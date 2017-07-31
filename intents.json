@@ -24,9 +24,17 @@
          "responses":["De rien"],
          "context_set":"end"
        },
-       {"tag": "payant",
+       {"tag":"payant",
         "patterns":["wifi_bar payant","amenities payant","services payant","shuttle payant","facilities payant","piscine payant","fitness_center payant","fitness_products payant","tennis payant","golf","on_site_activity","spa_and_thalasso_product","tourism_service","parking payant","petit dejeuner payant","Est-ce que le brunch est payant?","Le brunch est-il inclus dans le prix?","Faut-il payer pour le brunch?","Doit-on payer pour le brunch?","Est-ce qu'il faut payer pour le brunch?","Combien coûte le brunch?","Le brunch est-il compris ?","Le brunch est-il payant?","Faut payer pour le brunch?","","Est-ce que c'est payant le brunch ?","Combien pour le brunch ?","Est-ce que le brunch est gratuit ?","Le brunch est-il gratuit ?","Est-ce que c'est gratuit le brunch ?","Payant le brunch ?","Gratuit le brunch ?","Le prix du brunch est-il a part ?","Le prix du brunch est a part ?","Le brunch est-il compris dans le forfait ?","Le brunch est compris dans le forfait ?","Est-ce qu'il faut payer pour le brunch ?","Quel est le prix du brunch ?","Brunch payant ?","Brunch gratuit ?","Quel est le tarif du brunch ?","Tarif du brunch ?","Prix du brunch ?","C'est combien le brunch ?","Le brunch il est gratuit ?","Il est gratuit le brunch ou pas ?","Faut payer le brunch en plus ?","C'est quoi le prix du brunch ?"],
         "responses": ["Reponse service payant"]
+       },
+       {"tag": "handicap",
+        "patterns":["Est-ce qu'il y a un acces handicape a l'hotel ?","Est-ce qu'il y a un acces handicape au bar ?","Est-ce qu'il y a un acces handicape au restaurant?","Est-ce qu'il y a une rampe d'acces pour les fauteuils roulants?","Est-ce qu'il y a une rampe d'acces pour une chaise roulante?","Personne a mobilite reduite","Adapte aux personnes handicapees?","accessibilite reduite","Est-ce que le parking est adapte aux handicapes?","Est-ce qu'il y a une place handicape dans le parking?","Est-ce que l'hotel contient des amenagements pour personnes handicapees ?","Est-ce que l'hotel contient des amenagements pour personnes a mobilite reduite ?","La salle de bain de cette chambre est-elle accesssible aux personnes handicapees ?","La chambre est-elle adaptee aux personnes handicapees  ?","Y a-t-il des chambres pour personnes a mobilite reduite ?","L'hotel est-il accessible en fauteuil roulant ?","Y a-t-il des amenagements pour personnes malentendantes (dans les chambres) ?","Quels sont les amenagements pour personnes handicapees dans l'hotel ?","Quels sont les amenagements pour personnes malentendantes ?","Qu'est-ce qui est prevu pour les personnes handicapees ?","L'hotel est adapte aux handicapes ?"],
+        "responses":["Reponse handicap"]
+       },
+       {"tag": "langues",
+        "patterns":["Quelles sont les langues parlees dans l'hotel?","Est-ce que vous parlez francais a l'hotel?","Est-ce que l'hotel parle francais?","Est-ce que l'hotel parle anglais?","Est-ce que le personnel est francophone?","Est-ce que le personnel est anglophone","On peut parler quelles langues a l'hotel?","Le personnel est-il francophone?","Est-ce que vous comprenez le francais?","Quelles langues parlez-vous ?","Vous parlez francais?","Le personnel parle francais ?","Parlez-vous francais ?","Vous parlez quelles langues ?","Est-ce que quelqu'un parle francais dans l'hotel ?","Quelqu'un comprend le francais dans l'hotel ?","Quelqu'un parle francais dans l'hotel ?","Vous parlez fr ?","Quelle est la langue locale ?","C'est quoi la langue du pays ?","Des gens parlent francais dans l'hotel ?"],
+        "responses":["Reponse langues"]
        }
    ]
 }
