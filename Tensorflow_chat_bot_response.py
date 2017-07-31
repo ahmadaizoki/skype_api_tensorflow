@@ -43,8 +43,8 @@ with open('horaires.json') as horaires_data:
 
 # construire le reseau de neuron
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 12)
-net = tflearn.fully_connected(net, 12)
+net = tflearn.fully_connected(net, 20)
+net = tflearn.fully_connected(net, 20)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
@@ -150,7 +150,7 @@ def lastHoraires(user_id):
         print ("erreur connexion")
     j=len(rows)
     return rows[j-1][0]
-    
+
 def updateHoraires(parametre,user_id):
     mot=lastHoraires(user_id)
     cur=conn.cursor()
@@ -254,6 +254,3 @@ def response(sentence,user_id, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
-
-print (response('il y a wifi_bar et c est gratuit ou payant ','Ahmad'))
-print (response('je peux venir avec un  handicape? ','Ahmad'))
