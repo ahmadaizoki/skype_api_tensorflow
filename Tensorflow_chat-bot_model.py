@@ -86,8 +86,8 @@ train_y = list(training[:,1])
 tf.reset_default_graph()
 # construire les reseaux de neurons
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 10)
-net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 12)
+net = tflearn.fully_connected(net, 12)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
