@@ -43,8 +43,8 @@ with open('horaires.json') as horaires_data:
 
 # construire le reseau de neuron
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 12)
-net = tflearn.fully_connected(net, 12)
+net = tflearn.fully_connected(net, 20)
+net = tflearn.fully_connected(net, 20)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
@@ -254,3 +254,6 @@ def response(sentence,user_id, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
+print (response('quel heure je peux me bigner? ','Ahmad'))
+print (response('merci ','Ahmad'))
+print (response('ils parlent en francais ?','Ahmad'))
