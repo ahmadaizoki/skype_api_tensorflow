@@ -25,8 +25,40 @@
         "responses":["Reponse handicap"]
        },
        {"tag": "langues",
-        "patterns":["Quelles sont les langues parlees dans l'hotel?","Est-ce que vous parlez francais a l'hotel?","Est-ce que l'hotel parle francais?","Est-ce que l'hotel parle anglais?","Est-ce que le personnel est francophone?","Est-ce que le personnel est anglophone","On peut parler quelles langues a l'hotel?","Le personnel est-il francophone?","Est-ce que vous comprenez le francais?","Quelles langues parlez-vous ?","Vous parlez francais?","Le personnel parle francais ?","Parlez-vous francais ?","Vous parlez quelles langues ?","Est-ce que quelqu'un parle francais dans l'hotel ?","Quelqu'un comprend le francais dans l'hotel ?","Quelqu'un parle francais dans l'hotel ?","Vous parlez fr ?","Quelle est la langue locale ?","C'est quoi la langue du pays ?","Des gens parlent francais dans l'hotel ?","francais","anglais"],
+        "patterns":["Quelles sont les langues parlees dans l'hotel?","Est-ce que vous parlez francais a l'hotel?","Est-ce que l'hotel parle francais?","Est-ce que l'hotel parle anglais?","Est-ce que le personnel est francophone?","Est-ce que le personnel est anglophone","On peut parler quelles langues a l'hotel?","Le personnel est-il francophone?","Est-ce que vous comprenez le francais?","Quelles langues parlez-vous ?","Vous parlez francais?","Le personnel parle francais ?","Parlez-vous francais ?","Vous parlez quelles langues ?","Est-ce que quelqu'un parle francais dans l'hotel ?","Quelqu'un comprend le francais dans l'hotel ?","Quelqu'un parle francais dans l'hotel ?","Vous parlez fr ?","Quelle est la langue locale ?","C'est quoi la langue du pays ?","Des gens parlent francais dans l'hotel ?"],
         "responses":["Reponse langues"]
+       },
+       {"tag": "room_produits",
+        "patterns":["Est-ce qu'il y a un mini-bar dans la chambre?","Un lecteur dvd est-il present dans la chambre?","Est-ce qu'il y a Canal+ dans l'hotel?","Est-ce que vous recevez Canal+ dans l'hotel?","Est-ce que le wifi est disponible dans la chambre?","Est-ce qu'il y a le wifi dans la chambre?","Le wifi est-il disponible dans la chambre?","La chambre dispose-t-elle d'un lecteur dvd ?","Quelles sont les chaînes disponibles sur la TV dans la chambre ?","Quelles sont les chaînes gratuites ?","Combien y a-t-il de chaînes gratuites ?","Quel est le type de climatisation dans les chambres ?","La chambre est-elle climatisee ?","Ya la clim dans la chambre ?","C'est quoi comme clim dans la chambre ?","Quel est le voltage des prises electriques ?","Les portes des chambre sont-elles insonorisees ?","La chambre est-elle equipee d'un lecteur dvd ?","Est-ce que les fenetres sont du double vitrage ?","Comment la chambre est-elle securisee ?","Quel est la taille de la tele ?","Peut-on ouvrir les fenetres de la chambre ?","Est-ce que les rideaux sont occultants ?","Est-ce que la chambre se ferme automatiquement ?"],
+        "responses":["Reponse room_produits"]
+       },
+       {"tag": "regime_alimentataire",
+        "patterns":["Est-ce qu'il y a des plats vegetariens?","Est-ce que le restaurant sert des plats vegetariens?","Y a-t-il des plats pour les vegetariens?","La viande est-elle hallal?","Est-ce que vous faites des plats sans viande?","Y a-t-il un restaurant vegan ?","La cuisine contient-elle des arachides ?","Faites-vous des plats sans gluten ?","Ya-t-il des plats prevus pour les vegan ?","Est-ce que vous avez des plats vegetariens ?","Il y a des plats vegan ?","Vous avez des plats vegetariens ?","Avez-vous des plats vegetariens ?","Vous avez quoi comme plats vegetariens ?","Quels sont les plats vegetariens que vous avez ?"],
+        "responses":["Reponse regime alimentataire"]
+       },
+       {"tag": "sport_list",
+        "patterns":["Quels sont les differents sports proposes dans l'hotel ?","Est-ce qu'il y a du volley dans l'hotel ","Il y a quoi comme sport dans l'hotel ?","C'est quoi les sports dispo ?","Quels sont les sports disponibles dans l'hotel ?","On peut faire du ski ?","Quelles sont les differentes activites sportives ?","Quels sont les sports disponibles ?","Combien y a-t-il de terrain de tennis ?","Les raquettes sont-elles fournies ?","Les raquettes sont-elles payantes ?","Quels sont les tarifs de reservation d'un cours de tennis ?","Quel est l'âge minimum pour faire du karting ?","Quels sont les differents types de kart disponibles ?","De quelle tailles sont les ballons de basket ?"],
+        "responses":["Reponse liste sports"]
+       },
+       {"tag": "sport_type",
+        "patterns":["Est-ce qu'il y a une table de billard?","Est-ce que je peux pratiquer du ski de fond?","Est-ce qu'il y a un terrain de minigolf?","Est-ce qu'il y a un terain de foot?","Stade d'athletisme","Terrain de badminton","Table de Billard", "Table de Snooker","Table de Pool","Boules/petanque","Croquet","Ski de fond","Jeu de flechettes","Equitation","Peche en mer", "Peche en haute mer","Football","Minigolf","Cours de gymnastique", "Jet-ski", "Piste de course","Karting","Kayak","Appareils de musculation","salle de sport","Parachute ascensionnel","Patinoire","Pedalo","Plongee sous-marine","Ski alpin","Quad","Rafting en eaux vives","Piscine","Roller","Aviron","Ski nautique","Terrain de basket-ball","Porte-velos","Excursions en bateau","Bowling","Bateau avec fond de verre","Salle de remise en forme","Plage privee","Rafting","Voile","Ski","Plongee avec masque et tuba", "Plongee sous-marine","Volley-ball","Planche a voile","Terrain de squash","Tennis de table","Tir a l arc"],
+        "responses":["Reponse sport type"]
+       },
+       {"tag": "wellness",
+        "patterns":["Est-ce qu'il y a un sauna?","Est-ce qu'il y a des cabines UV?","Sauna","Hammam","Bain Turc ","Solarium","UV","Salon de bronzage","Bain bouillonnant","Spa","Cabines UV","Espace salon","Salle de repos","Bain chaud","Bain thermal","Spa thermal","Vente de cosmetiques","Massage","Therapie myofasciale","Reflexologie","Sophrologie","Shiatsu","Stretching","Enveloppements de remise en forme","Yoga","Soin des mains et des pieds","Soin des cheveux","Medecine chinoise traditionnelle"],
+        "responses":["Reponse wellness"]
+       },
+       {"tag": "Liste_activite_enfant",
+        "patterns":["Quelles sont les activites dediees aux enfants?","Quelles sont les activites pour enfants","Qu'est ce qu'il y a a faire pour les enfants?","Quels sont les jeux pour enfants?","Est-ce que vous proposer des jeux pour les enfants?","Quels sont les loisirs pour enfants?"],
+        "responses":["Reponse Liste_activite_enfant"]
+       },
+       {"tag": "Service_pour_enfant_type",
+        "patterns":["Est-ce que vous proposer un service de garde d'enfants?","Ya-t-il un service de babysitting?","Service de garde d'enfants sur demande","Est ce que vous proposer des loisirs pour enfants","Bibliotheque pour enfants","Club enfants de plus de 12 ans","Club enfants de 0 a 3 ans","Club enfants de 3 a 6 ans","Club enfants de 4 a 6 ans","Club enfants de 6 a 12 ans","Espace jeux videos","Jeux de societe disponibles","Aire de jeux exterieure pour enfants","Aire de jeux interieure pour enfants","piscine pour enfant","chauffe biberon","velos avec siege pour enfant","poussette"],
+        "responses":["Reponse service enfant type"]
+       },
+       {"tag": "Taille",
+        "patterns":["Il faut quel âge pour aller dans la piscine ?","Quelle est la hauteur maximale du parking?","Quelle est la taille du parking?","Quelles sont les dimensions du parking?","Le parking est-il est adapte aux autocars?","Peut-on entrer avec avec un car dans le parking?","Le parking peut-il accueillir un car?","Quelle est la profondeur de la piscine ?","Quelle est la largeur de la piscine ?","Quelle est la taille de la piscine ?","Elle est grande la piscine ?","Quelles sont les dimensions de la piscine ?","C'est quoi les dimensions de la piscine ?","Elle est grande comment la piscine ?"],
+        "responses":["Reponse taille"]
        }
    ]
 }

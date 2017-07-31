@@ -43,8 +43,8 @@ with open('horaires.json') as horaires_data:
 
 # construire le reseau de neuron
 net = tflearn.input_data(shape=[None, len(train_x[0])])
-net = tflearn.fully_connected(net, 21)
-net = tflearn.fully_connected(net, 21)
+net = tflearn.fully_connected(net, 14)
+net = tflearn.fully_connected(net, 14)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
