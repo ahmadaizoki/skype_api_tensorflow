@@ -254,7 +254,3 @@ def response(sentence,user_id, userID='123', show_details=False):
             results.pop(0)
 
 ##############################################################################
-print (response('quel heure je peux me bigner? ','Ahmad'))
-print (response('francais ','Ahmad'))
-print (response('ils parlent en francais ?','Ahmad'))
-print (response('handicap ','Ahmad'))
