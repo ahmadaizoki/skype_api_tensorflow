@@ -13,12 +13,13 @@ import skypebot
 
 from flask import Flask, request
 import Tensorflow_chat_bot_response as bt
+import config as conf
 
 
 app = Flask(__name__)
 
-client_id = 'f6a6d0ee-1856-4c36-a545-a427aef5a001'  #Microsoft ID
-client_secret = 'MS3JDeGrSLmeHaHpqTtgvsS' #Microsoft mot de passe
+client_id = conf.id_Micosoft  #Microsoft ID
+client_secret = conf.password_Microsoft #Microsoft mot de passe
 
 bot = skypebot.SkypeBot(client_id,client_secret)
 

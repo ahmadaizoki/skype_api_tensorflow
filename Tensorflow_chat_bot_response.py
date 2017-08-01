@@ -14,10 +14,11 @@ import random
 #connexion a la base
 import os
 import psycopg2
+import config
 
 #essayer de cinnecter
 try:
-    conn=psycopg2.connect("postgres://xpmqhxcaiquvwy:7b300499f98a11666ffc1d3a14f2bba8d17859bed31e3f9f37451e2c57ba00ec@ec2-79-125-125-97.eu-west-1.compute.amazonaws.com:5432/db63uu5csa2t5l")
+    conn=psycopg2.connect(config.db_url)
 except:
     print ("echec de connexion")
 
@@ -34,10 +35,10 @@ train_y = data['train_y']
 
 # appler le fichier json
 import json
-with open('intents.json') as json_data:
+with open(config.data_set) as json_data:
     intents = json.load(json_data)
 
-with open('horaires.json') as horaires_data:
+with open(config.data) as horaires_data:
     horaires=json.load(horaires_data)
 ############################################
 
@@ -90,7 +91,6 @@ model.load('./model.tflearn')
 def selectHoraire(mots):
     res=[]
     rows=[]
-    cur=conn.cursor()
     try:
         cur.execute("""SELECT parametre FROM horaires WHERE mot=%(mots)s""",{"mots":mots})
         rows=cur.fetchall()
@@ -116,7 +116,6 @@ def inHoraire(sentence):
 #Ajouter dans la base
 def addMotToHoraire(sentence,user_id):
     sent=nltk.word_tokenize(sentence)
-    cur=conn.cursor()
     j=0
     for i in sent:
         j+=1
@@ -134,7 +133,6 @@ def addMotToHoraire(sentence,user_id):
     return False
 
 def addToQuestion(sentence,user_id,intent,prop):
-    cur=conn.cursor()
     try:
         cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,0,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"user_id":user_id,"intent":intent,"prop":prop})
         conn.commit()
@@ -142,7 +140,6 @@ def addToQuestion(sentence,user_id,intent,prop):
         print ("erreur connexion")
 
 def lastHoraires(user_id):
-    cur=conn.cursor()
     rows=[]
     try:
         cur.execute("""SELECT mot FROM horaires WHERE id_user=%(user_id)s""",{"user_id":user_id})
@@ -154,7 +151,6 @@ def lastHoraires(user_id):
 
 def updateHoraires(parametre,user_id):
     mot=lastHoraires(user_id)
-    cur=conn.cursor()
     try:
         cur.execute("""UPDATE horaires SET parametre=%(parametre)s WHERE (mot=%(mot)s AND id_user=%(user_id)s)""",{"parametre":parametre,"mot":mot,"user_id":user_id})
         conn.commit()
@@ -250,7 +246,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 addToQuestion(sentence,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
                     else:
-                        return 'je comprends pas ce que vous voulez me dire!'
+                        return config.message_noIntent
 
             results.pop(0)
 
