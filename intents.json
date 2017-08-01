@@ -59,6 +59,11 @@
        {"tag": "Taille",
         "patterns":["Il faut quel âge pour aller dans la piscine ?","Quelle est la hauteur maximale du parking?","Quelle est la taille du parking?","Quelles sont les dimensions du parking?","Le parking est-il est adapte aux autocars?","Peut-on entrer avec avec un car dans le parking?","Le parking peut-il accueillir un car?","Quelle est la profondeur de la piscine ?","Quelle est la largeur de la piscine ?","Quelle est la taille de la piscine ?","Elle est grande la piscine ?","Quelles sont les dimensions de la piscine ?","C'est quoi les dimensions de la piscine ?","Elle est grande comment la piscine ?"],
         "responses":["Reponse taille"]
+       },
+       {
+          "tag":"parle_avec_moi",
+          "patterns":["parle","parle avec moi","il faut qu'on se parle","on pourrait se parler","on doit se parler","je voudrais te parler","pourrion-nous nous parler","porrait-on parler","peux tu me parler","parle-moi"],
+          "responses":["Avec palaisir. De quoi souhaites-tu parler ?","Quel est le sujet que tu souhaites aborder aujourd'hui ?","Bien sur. Je te laisse le choix du sujet","J'ai toujours beaucoup de plaisir à parler avec toi. De quoi souhaites-tu discuter?"]
        }
    ]
 }
