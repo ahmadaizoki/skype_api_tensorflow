@@ -121,21 +121,22 @@ def addMotToHoraire(sentence,user_id):
     for i in sent:
         j+=1
         if (i=='le'or i=='la' or i=='les' or i=='au' or i=='l'):
-            try:
-                cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
-                conn.commit()
-                print ("Done!")
-            except:
-                print ("erreur connexion")
-            print (sent[j])
-            return True
-            break
+            if (sent[j]!="horaires" and sent[j]!="hotel"):
+                try:
+                    cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
+                    conn.commit()
+                    print ("Done!")
+                except:
+                    print ("erreur connexion")
+                    print (sent[j])
+                    return True
+                break
     return False
 
-def addToQuestion(sentence,user_id,intent):
+def addToQuestion(sentence,user_id,intent,prop):
     cur=conn.cursor()
     try:
-        cur.execute("""INSERT INTO question (question,traiter,id_user,intent) VALUES (%(sentence)s,0,%(user_id)s,%(intent)s)""",{"sentence":sentence,"user_id":user_id,"intent":intent})
+        cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,0,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"user_id":user_id,"intent":intent,"prop":prop})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -213,7 +214,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 if (addMotToHoraire(sentence,user_id)):
                                     print ("add to horaires")
                                 else:
-                                    addToQuestion(sentence,user_id,i['tag'])
+                                    addToQuestion(sentence,user_id,i['tag'],str(results))
                                     print ("add to question")
                                 return random.choice(i['responses'])
 
@@ -246,7 +247,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 else:
                                     return random.choice(i['responses'])
                             else:
-                                addToQuestion(sentence,user_id,i['tag'])
+                                addToQuestion(sentence,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
                     else:
                         return 'je comprends pas ce que vous voulez me dire!'
