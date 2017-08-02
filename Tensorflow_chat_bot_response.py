@@ -120,7 +120,7 @@ def addMotToHoraire(sentence,user_id):
     for i in sent:
         j+=1
         if (i=='le'or i=='la' or i=='les' or i=='au' or i=='l'):
-            if (sent[j]!="horaires" and sent[j]!="hotel"):
+            if (sent[j]!="horaires" and sent[j]!="hotel" and sent[j]!="salle"):
                 try:
                     cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
                     conn.commit()
@@ -195,16 +195,18 @@ def response(sentence,user_id, userID='123', show_details=False):
                         if i['tag']=='horaires':
                             hor=inHoraire(sentence)
                             if hor=='pool':
-                                return (horaires["horaires"][0]["pool"])
+                                return (config.message_data_null)
+                                #return (horaires["horaires"][0]["pool"])
                                 break
                             elif hor=='breakfast':
-                                return (horaires["horaires"][0]["breakfast"])
+                                return ("Du "+config.breakfasts_date_from+" au "+config.breakfasts_date_to+" a partir de: "+config.breakfasts_period_from+" jusqu'a: "+config.breakfasts_period_to)
                                 break
                             elif hor=='restaurant':
-                                return (horaires["horaires"][0]["restaurant"])
+                                return (config.message_data_null)
+                                #return (horaires["horaires"][0]["restaurant"])
                                 break
                             elif hor=='fitness':
-                                return (horaires["horaires"][0]["fitness"])
+                                return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                 break
                             else:
                                 if (addMotToHoraire(sentence,user_id)):
@@ -222,24 +224,32 @@ def response(sentence,user_id, userID='123', show_details=False):
                             if i['tag']=='q_horaires':
                                 if sentence=='pool':
                                     if (updateHoraires('pool',user_id)):
-                                        return (horaires["horaires"][0]["pool"])
+                                        return (config.message_data_null)
+                                        #return (horaires["horaires"][0]["pool"])
                                     else:
-                                        return (horaires["horaires"][0]["pool"])
+                                        return (config.message_data_null)
+                                        #return (horaires["horaires"][0]["pool"])
+                                    break
                                 elif sentence=='breakfast':
                                     if (updateHoraires('breakfast',user_id)):
-                                        return (horaires["horaires"][0]["breakfast"])
+                                        return ("Du "+config.breakfasts_date_from+" au "+config.breakfasts_date_to+" a partir de: "+config.breakfasts_period_from+" jusqu'a: "+config.breakfasts_period_to)
                                     else:
-                                        return (horaires["horaires"][0]["breakfast"])
+                                        return ("Du "+config.breakfasts_date_from+" au "+config.breakfasts_date_to+" a partir de: "+config.breakfasts_period_from+" jusqu'a: "+config.breakfasts_period_to)
+                                    break
                                 elif sentence=='restaurant':
                                     if (updateHoraires('restaurant',user_id)):
-                                        return (horaires["horaires"][0]["restaurant"])
+                                        return (config.message_data_null)
+                                        #return (horaires["horaires"][0]["restaurant"])
                                     else:
-                                        return (horaires["horaires"][0]["restaurant"])
+                                        return (config.message_data_null)
+                                        #return (horaires["horaires"][0]["restaurant"])
+                                    break
                                 elif sentence=='fitness':
                                     if (updateHoraires('fitness',user_id)):
-                                        return (horaires["horaires"][0]["fitness"])
+                                        return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                     else:
-                                        return (horaires["horaires"][0]["fitness"])
+                                        return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
+                                    break
                                 else:
                                     return random.choice(i['responses'])
                             else:
