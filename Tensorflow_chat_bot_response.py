@@ -161,7 +161,7 @@ def updateHoraires(parametre,user_id):
 def lastQuestion(user_id):
     rows=[]
     try:
-        cur.execute("""SELECT question FROM question WHERE id_user=%(id_user)s""",{"id_user":id_user})
+        cur.execute("""SELECT question FROM question WHERE id_user=%(id_user)s""",{"id_user":user_id})
         rows=cur.fetchall()
     except:
         print ("erreur connexion")
