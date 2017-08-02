@@ -280,7 +280,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 else:
                                     return random.choice(i['responses'])
                             else:
-                                addToQuestion(sentence,user_id,i['tag'],str(results))
+                                addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
                     else:
                         return config.message_noIntent
