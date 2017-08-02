@@ -278,7 +278,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     updateQuestion(1,user_id)
                                     return (config.message_data_null)
                                 else:
-                                    return return (config.message_data_null)
+                                    return (config.message_data_null)
                             else:
                                 addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
