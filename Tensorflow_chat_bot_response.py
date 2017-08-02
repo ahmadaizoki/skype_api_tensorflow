@@ -134,7 +134,7 @@ def addMotToHoraire(sentence,user_id):
 
 def addToQuestion(sentence,flag,user_id,intent,prop):
     try:
-        cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,%(flag)i,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"flag":flag,"user_id":user_id,"intent":intent,"prop":prop})
+        cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,%(flag)s,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"flag":flag,"user_id":user_id,"intent":intent,"prop":prop})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -171,7 +171,7 @@ def lastQuestion(user_id):
 def updateQuestion(flag,user_id):
     question=lastQuestion(user_id)
     try:
-        cur.execute("""UPDATE question SET flag=%(flag)i WHERE (question=%(question)s AND id_user=%(user_id)s)""",{"flag":flag,"question":question,"user_id":user_id})
+        cur.execute("""UPDATE question SET flag=%(flag)s WHERE (question=%(question)s AND id_user=%(user_id)s)""",{"flag":flag,"question":question,"user_id":user_id})
         conn.commit()
     except:
         print ("erreur connexion")
