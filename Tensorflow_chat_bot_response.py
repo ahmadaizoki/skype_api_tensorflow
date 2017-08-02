@@ -274,11 +274,11 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     else:
                                         return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                     break
-                                elif sentence=='autre horaire':
+                                elif sentence=='autre_horaire':
                                     updateQuestion(1,user_id)
                                     return (config.message_data_null)
                                 else:
-                                    return random.choice(i['responses'])
+                                    return return (config.message_data_null)
                             else:
                                 addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
