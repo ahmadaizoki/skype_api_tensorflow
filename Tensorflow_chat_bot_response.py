@@ -122,7 +122,7 @@ def addMotToHoraire(sentence,user_id):
         if (i=='le'or i=='la' or i=='les' or i=='au' or i=='l'):
             if (sent[j]!="horaires" and sent[j]!="hotel" and sent[j]!="salle"):
                 try:
-                    cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,1,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
+                    cur.execute("""INSERT INTO horaires (mot,flag,id_user) VALUES (%(mot)s,0,%(user_id)s)""",{"mot":sent[j],"user_id":user_id})
                     conn.commit()
                     print ("Done!")
                 except:
@@ -132,9 +132,9 @@ def addMotToHoraire(sentence,user_id):
                 break
     return False
 
-def addToQuestion(sentence,user_id,intent,prop):
+def addToQuestion(sentence,flag,user_id,intent,prop):
     try:
-        cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,0,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"user_id":user_id,"intent":intent,"prop":prop})
+        cur.execute("""INSERT INTO question (question,traiter,id_user,intent,prop) VALUES (%(sentence)s,%(flag)i,%(user_id)s,%(intent)s,%(prop)s)""",{"sentence":sentence,"flag":flag,"user_id":user_id,"intent":intent,"prop":prop})
         conn.commit()
     except:
         print ("erreur connexion")
@@ -157,6 +157,26 @@ def updateHoraires(parametre,user_id):
     except:
         print ("erreur connexion")
     return True
+
+def lastQuestion(user_id):
+    rows=[]
+    try:
+        cur.execute("""SELECT question FROM question WHERE id_user=%(id_user)s""",{"id_user":id_user})
+        rows=cur.fetchall()
+    except:
+        print ("erreur connexion")
+    j=len(rows)
+    return rows[j-1][0]
+
+def updateQuestion(flag,user_id):
+    question=lastQuestion(user_id)
+    try:
+        cur.execute("""UPDATE question SET flag=%(flag)i WHERE (question=%(question)s AND id_user=%(user_id)s)""",{"flag":flag,"question":question,"user_id":user_id})
+        conn.commit()
+    except:
+        print ("erreur connexion")
+    return True
+
 #################################################################
 
 # la data structure pour la contexte d'utilisateur
@@ -195,24 +215,28 @@ def response(sentence,user_id, userID='123', show_details=False):
                         if i['tag']=='horaires':
                             hor=inHoraire(sentence)
                             if hor=='pool':
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return (config.message_data_null)
                                 #return (horaires["horaires"][0]["pool"])
                                 break
                             elif hor=='breakfast':
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return ("Du "+config.breakfasts_date_from+" au "+config.breakfasts_date_to+" a partir de: "+config.breakfasts_period_from+" jusqu'a: "+config.breakfasts_period_to)
                                 break
                             elif hor=='restaurant':
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return (config.message_data_null)
                                 #return (horaires["horaires"][0]["restaurant"])
                                 break
                             elif hor=='fitness':
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                 break
                             else:
                                 if (addMotToHoraire(sentence,user_id)):
                                     print ("add to horaires")
                                 else:
-                                    addToQuestion(sentence,user_id,i['tag'],str(results))
+                                    addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                     print ("add to question")
                                 return random.choice(i['responses'])
 
@@ -250,6 +274,9 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     else:
                                         return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                     break
+                                elif sentence=='autre horaire':
+                                    updateQuestion(1,user_id)
+                                    return (config.message_data_null)
                                 else:
                                     return random.choice(i['responses'])
                             else:
