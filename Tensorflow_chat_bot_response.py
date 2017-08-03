@@ -239,8 +239,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                     print ("add to question")
                                 return random.choice(i['responses'])
-                        elif i['tag']=="end":
-                            addToQuestion(sentence,2,user_id,i['tag'],str(results))
+
 
                     # si il y a pas de contexte
                     if not 'context_filter' in i or \
@@ -276,11 +275,13 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     else:
                                         return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                     break
-                                elif sentence=='autre_horaire':
+                                elif sentence=='autre_horaire' or sentence='autre horaires' or sentence='autre horaire':
                                     updateQuestion(1,user_id)
                                     return (config.message_data_null)
                                 else:
                                     return (config.message_data_null)
+                            elif i['tag']=="end":
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
                             else:
                                 addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
