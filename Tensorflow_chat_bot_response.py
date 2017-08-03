@@ -232,6 +232,10 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return ("Du "+config.fitness_date_from+" au "+config.fitness_date_to+" a partir de: "+config.fitness_period_from+" jusqu'a: "+config.fitness_period_to)
                                 break
+                            elif hor=='b_r':
+                                addToQuestion(sentence,2,user_id,i['tag'],str(results))
+                                return ("Le petit-dejeuner du "+config.breakfasts_date_from+" au "+config.breakfasts_date_to+" a partir de: "+config.breakfasts_period_from+" jusqu'a: "+config.breakfasts_period_to+"// Le restaurant ouvert du " )
+                                break
                             else:
                                 if (addMotToHoraire(sentence,user_id)):
                                     print ("add to horaires")
@@ -282,6 +286,7 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     return (config.message_data_null)
                             elif i['tag']=="end":
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
+                                return random.choice(i['responses'])
                             else:
                                 addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])
