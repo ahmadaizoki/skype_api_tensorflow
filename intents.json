@@ -6,7 +6,7 @@
        },
        {
          "tag":"q_horaires",
-         "patterns":["pool","restaurant","breakfast","fitness","autre_horaire"],
+         "patterns":["pool","restaurant","breakfast","fitness","autre_horaire","autre horaire","autre horaires"],
          "responses":["J'ai mal a comprendre ce que vous voulez me dire, pouvez-vous choisir un choix: pool , breakfast , restaurant , fitness, autre horaire, autre demande"],
          "context_filter":"horaire"
        },
@@ -63,7 +63,7 @@
        {
           "tag":"parle_avec_moi",
           "patterns":["parle","parle avec moi","il faut qu'on se parle","on pourrait se parler","on doit se parler","je voudrais te parler","pourrion-nous nous parler","porrait-on parler","peux tu me parler","parle-moi"],
-          "responses":["Avec palaisir. De quoi souhaites-tu parler ?","Quel est le sujet que tu souhaites aborder aujourd'hui ?","Bien sur. Je te laisse le choix du sujet","J'ai toujours beaucoup de plaisir à parler avec toi. De quoi souhaites-tu discuter?"]
+          "responses":["Avec plaisir. De quoi souhaites-tu parler ?","Quel est le sujet que tu souhaites aborder aujourd'hui ?","Bien sur. Je te laisse le choix du sujet","J'ai toujours beaucoup de plaisir à parler avec toi. De quoi souhaites-tu discuter?"]
        }
    ]
 }

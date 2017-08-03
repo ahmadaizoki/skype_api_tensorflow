@@ -239,6 +239,8 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     addToQuestion(sentence,0,user_id,i['tag'],str(results))
                                     print ("add to question")
                                 return random.choice(i['responses'])
+                        elif i['tag']=="end":
+                            addToQuestion(sentence,2,user_id,i['tag'],str(results))
 
                     # si il y a pas de contexte
                     if not 'context_filter' in i or \
