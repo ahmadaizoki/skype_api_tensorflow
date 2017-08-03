@@ -161,22 +161,22 @@ def updateHoraires(parametre,user_id):
 def lastQuestion(user_id):
     rows=[]
     try:
-        cur.execute("""SELECT question FROM question WHERE id_user=%(id_user)s""",{"id_user":user_id})
+        cur.execute("""SELECT id FROM question WHERE id_user=%(user_id)s""",{"user_id":user_id})
         rows=cur.fetchall()
     except:
         print ("erreur connexion")
     j=len(rows)
+    print (rows[j-1][0])
     return rows[j-1][0]
 
 def updateQuestion(flag,user_id):
-    question=lastQuestion(user_id)
+    id_q=lastQuestion(user_id)
     try:
-        cur.execute("""UPDATE question SET flag=%(flag)s WHERE (question=%(question)s AND id_user=%(user_id)s)""",{"flag":flag,"question":question,"user_id":user_id})
+        cur.execute("""UPDATE question SET traiter=%(flag)s WHERE id=%(id)s""",{"flag":flag,"id":id_q})
         conn.commit()
     except:
         print ("erreur connexion")
     return True
-
 #################################################################
 
 # la data structure pour la contexte d'utilisateur
