@@ -74,7 +74,7 @@ def fb_receive_message():
                 text=message[text]
                 fb_messages(user_id,text)
                 print("{sender[id]} says {message[text]}".format(**message))
-    fb_messages(user_id,text    return "Hi"
+    return "Hi"
 
 
 def fb_messages(user_id,text):
