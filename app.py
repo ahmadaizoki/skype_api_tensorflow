@@ -55,6 +55,7 @@ def process_messages(sender,text,service):
 
 #########################################################################
 from pymessager.message import Messager
+client=Messager("Accorhotels")
 
 @app.route('/webhook', methods=["GET"])
 def fb_webhook():
@@ -72,7 +73,7 @@ def fb_receive_message():
             if message.get('message'):
                 user_id="{sender[id]}".format(**message)
                 text="{message[text]}".format(**message)
-                fb_messages(user_id,text)
+                Messager.send_text(user_id,text)
                 print("{sender[id]} says {message[text]}".format(**message))
     return "Hi"
 
