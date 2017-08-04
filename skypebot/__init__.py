@@ -28,7 +28,7 @@ class SkypeBot:
         def runit():
             while True:
                 token_func()
-                sleep(10000)
+                sleep(3000)
 
         self.t = threading.Thread(target=runit)
         self.t.daemon = True
