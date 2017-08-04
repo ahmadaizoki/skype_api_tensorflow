@@ -73,7 +73,7 @@ def fb_receive_message():
             if message.get('message'):
                 user_id="{sender[id]}".format(**message)
                 text="{message[text]}".format(**message)
-                Messager.send_text(user_id,text)
+                client.send_text(user_id,text)
                 print("{sender[id]} says {message[text]}".format(**message))
     return "Hi"
 
