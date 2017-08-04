@@ -53,8 +53,24 @@ def webhook():
 def process_messages(sender,text,service):
   bot.send_message(service,sender,text)
 
+#########################################################################
+@app.route('/webhook', methods=["GET"])
+def fb_webhook():
+    verification_code = 'Accorhotels'
+    verify_token = request.args.get('hub.verify_token')
+    if verification_code == verify_token:
+        return request.args.get('hub.challenge')
 
 
+@app.route('/webhook', methods=['POST'])
+def fb_receive_message():
+    message_entries = json.loads(request.data.decode('utf8'))['entry']
+    for entry in message_entries:
+        for message in entry['messaging']:
+            if message.get('message'):
+                print("{sender[id]} says {message[text]}".format(**message))
+    return "Hi"
 
+########################################################################
 if __name__ == '__main__':
     app.run()
