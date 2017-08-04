@@ -54,6 +54,8 @@ def process_messages(sender,text,service):
   bot.send_message(service,sender,text)
 
 #########################################################################
+from pymessager.message import Messager
+
 @app.route('/webhook', methods=["GET"])
 def fb_webhook():
     verification_code = 'Accorhotels'
@@ -65,12 +67,18 @@ def fb_webhook():
 @app.route('/webhook', methods=['POST'])
 def fb_receive_message():
     message_entries = json.loads(request.data.decode('utf8'))['entry']
+    user_id=sender[id]
+    text=message[text]
     for entry in message_entries:
         for message in entry['messaging']:
             if message.get('message'):
                 print("{sender[id]} says {message[text]}".format(**message))
+    fb_messages(user_id,text)
     return "Hi"
 
+
+def fb_messages(user_id,text):
+    Messager.send_text(user_id,text)
 ########################################################################
 if __name__ == '__main__':
     app.run()
