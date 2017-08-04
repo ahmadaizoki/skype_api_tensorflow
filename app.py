@@ -18,6 +18,9 @@ import config as conf
 
 app = Flask(__name__)
 
+##################################################
+#skype bot
+
 client_id = conf.id_Micosoft  #Microsoft ID
 client_secret = conf.password_Microsoft #Microsoft mot de passe
 
@@ -54,6 +57,8 @@ def process_messages(sender,text,service):
   bot.send_message(service,sender,text)
 
 #########################################################################
+#facebook bot
+
 from pymessager.message import Messager
 client=Messager("EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD")
 
@@ -75,7 +80,6 @@ def fb_receive_message():
                 text="{message[text]}".format(**message)
                 res=bt.response(text,user_id)
                 client.send_text(user_id,res)
-                print("{sender[id]} says {message[text]}".format(**message))
     return "Ok"
 
 ########################################################################
