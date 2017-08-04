@@ -38,8 +38,6 @@ import json
 with open(config.data_set) as json_data:
     intents = json.load(json_data)
 
-with open(config.data) as horaires_data:
-    horaires=json.load(horaires_data)
 ############################################
 
 # construire le reseau de neuron
@@ -216,7 +214,6 @@ def response(sentence,user_id, userID='123', show_details=False):
                             if hor=='pool':
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return (config.message_data_null)
-                                #return (horaires["horaires"][0]["pool"])
                                 break
                             elif hor=='breakfast':
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
@@ -225,7 +222,6 @@ def response(sentence,user_id, userID='123', show_details=False):
                             elif hor=='restaurant':
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return (config.message_data_null)
-                                #return (horaires["horaires"][0]["restaurant"])
                                 break
                             elif hor=='fitness':
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
@@ -253,10 +249,8 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 if sentence=='pool':
                                     if (updateHoraires('pool',user_id)):
                                         return (config.message_data_null)
-                                        #return (horaires["horaires"][0]["pool"])
                                     else:
                                         return (config.message_data_null)
-                                        #return (horaires["horaires"][0]["pool"])
                                     break
                                 elif sentence=='breakfast':
                                     if (updateHoraires('breakfast',user_id)):
@@ -267,10 +261,8 @@ def response(sentence,user_id, userID='123', show_details=False):
                                 elif sentence=='restaurant':
                                     if (updateHoraires('restaurant',user_id)):
                                         return (config.message_data_null)
-                                        #return (horaires["horaires"][0]["restaurant"])
                                     else:
                                         return (config.message_data_null)
-                                        #return (horaires["horaires"][0]["restaurant"])
                                     break
                                 elif sentence=='fitness':
                                     if (updateHoraires('fitness',user_id)):
