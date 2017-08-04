@@ -73,13 +73,11 @@ def fb_receive_message():
             if message.get('message'):
                 user_id="{sender[id]}".format(**message)
                 text="{message[text]}".format(**message)
-                client.send_text(user_id,text)
+                res=bt.response(text,user_id)
+                client.send_text(user_id,res)
                 print("{sender[id]} says {message[text]}".format(**message))
-    return "Hi"
+    return "Ok"
 
-
-def fb_messages(user_id,text):
-    Messager.send_text(user_id,text)
 ########################################################################
 if __name__ == '__main__':
     app.run()
