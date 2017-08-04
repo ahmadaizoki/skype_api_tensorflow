@@ -60,11 +60,11 @@ def process_messages(sender,text,service):
 #facebook bot
 
 from pymessager.message import Messager
-client=Messager("EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD")
+client=Messager(conf.fb_access_token)
 
 @app.route('/webhook', methods=["GET"])
 def fb_webhook():
-    verification_code = 'Accorhotels'
+    verification_code = conf.fb_verifing_token
     verify_token = request.args.get('hub.verify_token')
     if verification_code == verify_token:
         return request.args.get('hub.challenge')

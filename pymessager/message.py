@@ -5,7 +5,7 @@ from enum import Enum
 
 import requests
 
-__author__ = "enginebai"
+__author__ = "Accor"
 
 URL_BASE = "https://graph.facebook.com/v2.6/me/"  # v2.9?!?
 

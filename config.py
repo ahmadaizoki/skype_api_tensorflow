@@ -5,7 +5,9 @@ data_set="intents.json" #le data sets
 data="hod_1022.json" #les données
 id_Micosoft="f6a6d0ee-1856-4c36-a545-a427aef5a001" # Microsoft ID
 password_Microsoft="MS3JDeGrSLmeHaHpqTtgvsS" # Microsoft password
-message_data_null="Désolé, j'ai pas les informations demandées. Veillez conntacter :"
+message_data_null="Désolé, j'ai pas les informations demandées. Veillez conntacter :" #s'il y a pas de data
+fb_access_token="EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD" #facebook access token
+fb_verifing_token="" #facebook verifing token
 ################################################################################
 import json
 
