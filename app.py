@@ -67,14 +67,14 @@ def fb_webhook():
 @app.route('/webhook', methods=['POST'])
 def fb_receive_message():
     message_entries = json.loads(request.data.decode('utf8'))['entry']
-    user_id=sender[id]
-    text=message[text]
     for entry in message_entries:
         for message in entry['messaging']:
             if message.get('message'):
+                user_id=sender[id]
+                text=message[text]
+                fb_messages(user_id,text)
                 print("{sender[id]} says {message[text]}".format(**message))
-    fb_messages(user_id,text)
-    return "Hi"
+    fb_messages(user_id,text    return "Hi"
 
 
 def fb_messages(user_id,text):
