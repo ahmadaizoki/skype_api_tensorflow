@@ -70,9 +70,6 @@ def fb_receive_message():
     for entry in message_entries:
         for message in entry['messaging']:
             if message.get('message'):
-                user_id=sender[id]
-                text=message[text]
-                fb_messages(user_id,text)
                 print("{sender[id]} says {message[text]}".format(**message))
     return "Hi"
 
