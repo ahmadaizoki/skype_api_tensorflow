@@ -82,7 +82,7 @@ def fb_receive_message():
                 if len(res)>1:
                     client.send_text(user_id,res)
                 else:
-                    client.send_image(user_id,res[0])
+                    client.send_image(user_id,res[0][1])
     return "Ok"
 
 ########################################################################
