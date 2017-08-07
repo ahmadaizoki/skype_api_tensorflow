@@ -8,8 +8,9 @@ password_Microsoft="MS3JDeGrSLmeHaHpqTtgvsS" # Microsoft password
 message_data_null="Désolé, j'ai pas les informations demandées. Veillez conntacter :" #s'il y a pas de data
 fb_access_token="EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD" #facebook access token
 fb_verifing_token="Accorhotels" #facebook verifing token
-import gif.deRien as derien
-deRien=derien
+import gif
+from PIL import Image
+deRien=Image.open("deRien.gif")
 ################################################################################
 import json
 
