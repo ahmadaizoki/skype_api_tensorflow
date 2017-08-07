@@ -9,7 +9,7 @@ password_Microsoft="MS3JDeGrSLmeHaHpqTtgvsS" # Microsoft password
 message_data_null="Désolé, j'ai pas les informations demandées. Veillez conntacter :" #s'il y a pas de data
 fb_access_token="EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD" #facebook access token
 fb_verifing_token="Accorhotels" #facebook verifing token
-deRien="https://skypeapitensorflow.herokuapp.com/gif/deRien.gif"
+deRien="http://blogdecarole432.b.l.pic.centerblog.net/vs5dtopu.gif"
 ################################################################################
 import json
 
