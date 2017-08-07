@@ -277,7 +277,8 @@ def response(sentence,user_id, userID='123', show_details=False):
                                     return (config.message_data_null)
                             elif i['tag']=="end":
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
-                                return random.choice(i['responses'])
+                                #return random.choice(i['responses'])
+                                return config.deRien
                             elif i['tag']=="parle_avec_moi":
                                 addToQuestion(sentence,2,user_id,i['tag'],str(results))
                                 return random.choice(i['responses'])

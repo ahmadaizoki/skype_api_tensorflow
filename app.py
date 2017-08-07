@@ -79,7 +79,8 @@ def fb_receive_message():
                 user_id="{sender[id]}".format(**message)
                 text="{message[text]}".format(**message)
                 res=bt.response(text,user_id)
-                client.send_text(user_id,res)
+                if (client.send_text(user_id,res))
+                elif (client.send_image(user_id,res))
     return "Ok"
 
 ########################################################################
