@@ -10,7 +10,7 @@ fb_access_token="EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JC
 fb_verifing_token="Accorhotels" #facebook verifing token
 import gif
 from PIL import Image
-deRien=Image.open("deRien.gif")
+deRien=gif.Image.open("deRien.gif")
 ################################################################################
 import json
 
