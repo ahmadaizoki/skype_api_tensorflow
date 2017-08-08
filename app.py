@@ -15,7 +15,7 @@ import skypebot
 from flask import Flask, request
 import Tensorflow_chat_bot_response as bt
 import config as conf
-
+page = fbmq.Page(conf.fb_access_token)
 
 app = Flask(__name__)
 
