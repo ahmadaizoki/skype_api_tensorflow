@@ -69,6 +69,66 @@
          "tag":"generic",
          "patterns":["generic"],
          "responses":["ok"]
+       },
+       {
+         "tag":"welcome",
+         "patterns":["sois la bienvenue","sois le bienvenu","soyez le bienvenu","soyez la bienvenue","soyez les bienvenus","soyez les bienvenues","bienvenu","bienvenue","la bienvenue","de rien"],
+         "responses":["Merci.","Quel accueil, merci.","Ça me touche tellement.","Merci beaucoup."]
+       },
+       {
+         "tag":"sorry",
+         "patterns":["je te présente mes execuses","désolé","pardon","j'en suis désolée","j'en suis désolé"],
+         "responses":["Ok,c'est pardonné","je t'execuse"]
+       },
+       {
+         "tag":"hello",
+         "patterns":["bonjour à toi","salut à toi","coucou","salut","bonjour","hey","hé","salutations","rebonjour"],
+         "responses":["Salut !","Bonjour !","Salut à toi !","Coucou !","Quel plaisir de te revoir !","Salutations !","Bienvenue"]
+       },
+       {
+         "tag":"how_r_y",
+         "patterns":["ca va ?","ça va ?","tu vas bien ?","comment ça va ?","vas tu bien ?","comment vas-tu ?","comment ça marche ?","Comment ça roule ?"],
+         "responses":["Je suis au meilleur de ma forme, merci !","Ça va toujours quand je t'entends !","Très bien, merci !","Super, comme toujours !"]
+       },
+       {
+         "tag":"nice_t_m_y",
+         "patterns":["enchanté","enchantée","enchanté de te rencontrer","enchantée de te rencontrer","c'est super de te rencontrer","c'est un plaisir de te rencontrer","content de te rencontrer"],
+         "responses":["Ça me fait plaisir aussi de te connaître.","Une belle amitié est née entre nous.","Le plaisir est partagé."]
+       },
+       {
+         "tag":"nice_to_t_t_y",
+         "patterns":["c'est super de te reparler","je suis encahnté de te reparler","je suis encahntée de te reparler","c'est un palisir de te reparler","content de te reparler","super de te parler de nouveau","ça ma fait plaisir de te parler","content de te parler"],
+         "responses":["merci"]
+       },
+       {
+         "tag":"whatsapp",
+         "patterns":["quoi de beau","quoi de neuf","quoi de nouveau"],
+         "responses":["Pas grand chose. Et de ton côté ?","Tout va bien, j'aime toujours autant travailler pour toi. Quoi de neuf de ton côté ?","Rien de bien neuf, ça me fait toujours autant plaisir de te rendre service. Et toi ?","Que du vieux. Et pour toi ?"]
+       },
+       {
+         "tag":"angry",
+         "patterns":["ça m'énerve","je suis enervé","je suis enervée","je suis trop faché","je suis trop fachée","je suis furieux","je suis furieuse"],
+         "responses":["no"]
+       },
+       {
+         "tag":"bored",
+         "patterns":["je m'ennuie quoi faire ?","je m'ennuie toujours","ça m'ennuie","je suis ennuyé","je suis ennuyée","c'est ennuyeux"],
+         "responses":["ah"]
+       },
+       {
+         "tag":"busy",
+         "patterns":["je suis trèp occupé","je suis très occupée","j'ai trop à faire ","pas de tepms","je suis occupé en ce moment"],
+         "responses":["quoi"]
+       },
+       {
+         "tag":"qhat_d_y_m",
+         "patterns":["c'est quoi que tu veux dire ?","tu veux dire quoi précisément ?","qu'est ce que tu veux dire ?","tu veux dire quoi ?"],
+         "responses":["J'ai peut-être mal compris. Excuse-moi si j'ai fait une erreur.","Pardon si ma réponse est confuse. Il m'arrive parfois de mal saisir les demandes."]
+       },
+       {
+         "tag":"grand_m",
+         "patterns":["fuck you","fuck off ","fuck"],
+         "responses":["lol"]
        }
    ]
 }

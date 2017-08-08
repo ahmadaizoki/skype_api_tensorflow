@@ -9,6 +9,11 @@ message_data_null="Désolé, j'ai pas les informations demandées. Veillez connt
 fb_access_token="EAAT60LMwcGABAP3WMtxBc1fZAWMlmP4TqtSRKKDRn6AnN1naZA4MgNyXGZB3JCfn8u6DFfMGwl8da9W4ZCHBeFI0opQvqanr57jZC7KWitxOJteRDfT4OzbYgVJT9qRL6xOx0ZAXCoLCdK2xk7yZAlOe3IZCzTOoaAn5XFMRvkZAS3gZDZD" #facebook access token
 fb_verifing_token="Accorhotels" #facebook verifing token
 deRien="http://blogdecarole432.b.l.pic.centerblog.net/vs5dtopu.gif"
+happy="http://3.bp.blogspot.com/-KEDmPCRmxjA/VEMWhyyxs0I/AAAAAAABSTQ/5Z_9uhQROoo/s1600/nicetomeetyou.gif"
+angry="https://media.tenor.com/images/396fb4cb90f66956fd5b43b0d7c14a07/tenor.gif"
+bored="https://media.giphy.com/media/G0kYhjNzlCkpy/giphy.gif"
+busy="https://funtastique.fr/wp-content/uploads/2013/06/animaux-trop-craquants.gif"
+grand="http://31.media.tumblr.com/tumblr_m53uf9RAQb1rxnoopo1_500.gif"
 ################################################################################
 import json
 

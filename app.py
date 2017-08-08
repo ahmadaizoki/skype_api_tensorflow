@@ -82,6 +82,16 @@ def fb_receive_message():
                 res=bt.response(text,user_id)
                 if res=="De rien":
                     client.send_image(user_id,conf.deRien)
+                elif res=="merci":
+                    client.send_image(user_id,conf.happy)
+                elif res=="no":
+                    client.send_image(user_id,conf.angry)
+                elif res=="ah":
+                    client.send_image(user_id,conf.bored)
+                elif res=="quoi":
+                    client.send_image(user_id,conf.busy)
+                elif res="lol":
+                    client.send_image(user_id,conf.grand)
                 elif (res=="ok"):
                     page.send(user_id, Template.Generic([
                         Template.GenericElement("rift",
