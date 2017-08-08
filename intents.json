@@ -68,7 +68,7 @@
        {
          "tag":"generic",
          "patterns":["generic"],
-         "resopnses":["ok"]
+         "responses":["ok"]
        }
    ]
 }
