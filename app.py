@@ -90,7 +90,7 @@ def fb_receive_message():
                     client.send_image(user_id,conf.bored)
                 elif res=="quoi":
                     client.send_image(user_id,conf.busy)
-                elif res="lol":
+                elif res=="lol":
                     client.send_image(user_id,conf.grand)
                 elif (res=="ok"):
                     page.send(user_id, Template.Generic([
