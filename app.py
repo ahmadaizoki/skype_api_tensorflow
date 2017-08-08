@@ -6,6 +6,7 @@ import base64
 import requests
 import string
 from imp import reload
+from fbmq import Attachment, Template, QuickReply, Page
 
 reload(sys)
 
@@ -82,8 +83,7 @@ def fb_receive_message():
                 if res=="De rien":
                     client.send_image(user_id,conf.deRien)
                 elif (res=="ok"):
-                    Template=[]
-                    client.send_generic(user_id, Template.Generic([
+                    page.send(user_id, Template.Generic([
                         Template.GenericElement("rift",
                           subtitle="Next-generation virtual reality",
                           item_url="https://www.oculus.com/en-us/rift/",
