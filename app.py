@@ -16,8 +16,7 @@ from flask import Flask, request
 import Tensorflow_chat_bot_response as bt
 import config as conf
 template=[]
-template.append(Template.Generic([
-    Template.GenericElement("rift",
+template.append(Template.GenericElement("rift",
       subtitle="Next-generation virtual reality",
       item_url="https://www.oculus.com/en-us/rift/",
       image_url=conf.deRien,
@@ -25,8 +24,8 @@ template.append(Template.Generic([
           Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
           Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
           Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-      ]),
-    Template.GenericElement("touch",
+      ]))
+template.append(Template.GenericElement("touch",
       subtitle="Your Hands, Now in VR",
       item_url="https://www.oculus.com/en-us/touch/",
       image_url=conf.deRien,
@@ -34,8 +33,7 @@ template.append(Template.Generic([
           Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
           Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
           Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-      ])
-]))
+      ]))
 
 page = Page(conf.fb_access_token)
 
