@@ -1,3 +1,4 @@
+fbmq==2.1.0
 Flask==0.12.2
 gunicorn==19.7.1
 nltk==3.2.4
