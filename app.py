@@ -82,6 +82,7 @@ def fb_receive_message():
                 if res=="De rien":
                     client.send_image(user_id,conf.deRien)
                 elif (res=="ok"):
+                    Template=[]
                     client.send_generic(user_id, Template.Generic([
                         Template.GenericElement("rift",
                           subtitle="Next-generation virtual reality",
