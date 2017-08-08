@@ -82,7 +82,7 @@ def fb_receive_message():
                 if res=="De rien":
                     client.send_image(user_id,conf.deRien)
                 elif (res=="ok"):
-                    client.send-generic(user_id, Template.Generic([
+                    client.send_generic(user_id, Template.Generic([
                         Template.GenericElement("rift",
                           subtitle="Next-generation virtual reality",
                           item_url="https://www.oculus.com/en-us/rift/",
