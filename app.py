@@ -15,6 +15,28 @@ import skypebot
 from flask import Flask, request
 import Tensorflow_chat_bot_response as bt
 import config as conf
+
+template=Template.Generic([
+    Template.GenericElement("rift",
+      subtitle="Next-generation virtual reality",
+      item_url="https://www.oculus.com/en-us/rift/",
+      image_url=conf.deRien,
+      buttons=[
+          Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
+          Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
+          Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+      ]),
+    Template.GenericElement("touch",
+      subtitle="Your Hands, Now in VR",
+      item_url="https://www.oculus.com/en-us/touch/",
+      image_url=conf.deRien,
+      buttons=[
+          Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
+          Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
+          Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
+      ])
+])
+
 page = Page(conf.fb_access_token)
 
 app = Flask(__name__)
@@ -83,26 +105,7 @@ def fb_receive_message():
                 if res=="De rien":
                     client.send_image(user_id,conf.deRien)
                 elif (res=="ok"):
-                    page.send(user_id, Template.Generic([
-                        Template.GenericElement("rift",
-                          subtitle="Next-generation virtual reality",
-                          item_url="https://www.oculus.com/en-us/rift/",
-                          image_url=conf.deRien,
-                          buttons=[
-                              Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                              Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                              Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-                          ]),
-                        Template.GenericElement("touch",
-                          subtitle="Your Hands, Now in VR",
-                          item_url="https://www.oculus.com/en-us/touch/",
-                          image_url=conf.deRien,
-                          buttons=[
-                              Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
-                              Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
-                              Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
-                          ])
-                    ]))
+                    client.send_generic(user_id,template)
                 else:
                     client.send_text(user_id,res)
     return "Ok"
