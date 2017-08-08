@@ -15,8 +15,8 @@ import skypebot
 from flask import Flask, request
 import Tensorflow_chat_bot_response as bt
 import config as conf
-
-template=Template.Generic([
+template=[]
+template.append(Template.Generic([
     Template.GenericElement("rift",
       subtitle="Next-generation virtual reality",
       item_url="https://www.oculus.com/en-us/rift/",
@@ -35,7 +35,7 @@ template=Template.Generic([
           Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
           Template.ButtonPhoneNumber("Call Phone Number", "+16505551234")
       ])
-])
+]))
 
 page = Page(conf.fb_access_token)
 
