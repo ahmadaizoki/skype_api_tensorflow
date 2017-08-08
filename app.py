@@ -87,7 +87,7 @@ def fb_receive_message():
                         Template.GenericElement("rift",
                           subtitle="Next-generation virtual reality",
                           item_url="https://www.oculus.com/en-us/rift/",
-                          image_url=CONFIG['SERVER_URL'] + "/assets/rift.png",
+                          image_url=conf.deRien,
                           buttons=[
                               Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
                               Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
@@ -96,7 +96,7 @@ def fb_receive_message():
                         Template.GenericElement("touch",
                           subtitle="Your Hands, Now in VR",
                           item_url="https://www.oculus.com/en-us/touch/",
-                          image_url=CONFIG['SERVER_URL'] + "/assets/touch.png",
+                          image_url=conf.deRien,
                           buttons=[
                               Template.ButtonWeb("Open Web URL", "https://www.oculus.com/en-us/rift/"),
                               Template.ButtonPostBack("tigger Postback", "DEVELOPED_DEFINED_PAYLOAD"),
